@@ -1,0 +1,6 @@
+vscode 확장프로그램
+Open in Browser : Alt + B
+Quick HTML Previewer : ctrl+q s 또는 F1
+htmltagwrap : Alt + W
+Auto Rename Tag
+Live Server
