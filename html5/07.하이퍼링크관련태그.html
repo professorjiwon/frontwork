@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>하이퍼링크관련태그</title>
+</head>
+<body>
+    <!--
+        하이퍼링크 기능은 웹 기능의 가장 핵심적인 기능
+        클릭을 통해 연결된 곳으로 이동하여 사용을 편리하게 해주는 기능
+        텍스트를 클릭하여 링크로 이동하는 방법,
+        이미지를 클릭하여 링크로 이동하는 방법,
+        현재 페이지 내에서 링크로 이동도 할수 있음
+    -->
+    <h1>하이퍼링크 관련 태그</h1>
+    <!-- a태그 : href속성으로 링크를 만들수 있음 -->
+    <a href="02.글자관련태그.html">글자관련태그</a>
+    <ul>
+        <li><a href="02.글자관련태그.html">글자관련태그</a></li>
+        <li><a href="03.목록관련태그.html">목록관련태그</a></li>
+        <li><a href="https://naver.com">네이버</a></li>
+    </ul>
+    
+    <h3>* target속성 : 링크된 문서를 클릭했을 때 문서가 열리는 위치 지정</h3>
+    <p>
+        _self(기본값) : 현재 열려있는 창에 열림<br>
+        _blank : 새탭에서 열림<br>
+        _parent : 링크된 문서를 현재 프레임의 부모 프레임에서 오픈함(프레임이 없으면 현재탭)<br>
+        _top : 링크된 문서를 현재 윈도우 전체에서 오픈함(프레임이 없으면 현재탭)
+    </p>
+
+    <a href="https://google.com">구글 사이트</a><br>
+    <a href="https://daum.net" target="_blank">다음 사이트</a><br>
+
+    <h3>* img태그를 이용하여 링크 만들기</h3>
+    <a href="http://www.w3schools.com" target="_blank">
+        <img src="resources/img/img3.jpg" width="200" height="150">
+    </a>
+
+    <h3>* 이미지 맵</h3>
+    <p>
+        이미지를 구역별로 나누어 링크를 걸어주는 태그 &lt;img&gt;태그에 usemap속성 지정
+    </p>
+    <!--
+        <img src="이미지 url" usemap="#맵이름">
+        <map name="맵이름">
+            <area shape="모양" coords="시작위치, 끝위치" href="링크경로" [target="위치"]> 
+            <area shape="모양" coords="시작위치, 끝위치" href="링크경로" [target="위치"]>
+            <area shape="모양" coords="시작위치, 끝위치" href="링크경로" [target="위치"]>
+        </map>
+        
+        >> shape의 속성
+          - react : 사각형
+          - circle : 원형
+          - poly : 다각형
+          - default : 전체영역
+    -->
+    <img src="resources/img/cows.png" width="500" height="300" usemap="#imgmap">
+    <map name="imgmap">
+        <area shape="rect" coords="0,0,250,300" href="https://google.com" alt="구글로 이동" target="_blank">
+        <area shape="rect" coords="250,0,500,300" href="https://naver.com" alt="네이버로 이동" target="_blank">
+    </map>
+
+    <!--
+        이미지
+        https://seoulsolution.kr/ko/seoul-stats
+
+        강서구청
+        https://www.gangseo.seoul.kr/index
+    -->
+
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>

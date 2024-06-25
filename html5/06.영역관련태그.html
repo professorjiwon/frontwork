@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>영역관련태그</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            border:1px solid;
+        }
+        .red {
+            background-color: red;
+        }
+        .orange {
+            background-color: orange;
+        }
+        .yellow {
+            background-color: yellow;
+        }
+        span {
+            border: 1px dotted;
+            /*
+            width: 200px;
+            height: 200px;
+            - 인라인 요소에서는 대부분 가로, 세로길이 지정 불가
+            */
+        }
+    </style>
+</head>
+<body>
+    <!--
+        * 블럭요소 : 한줄 단위로 영역차지
+                    줄바꿈이 이미 적용되어 있는 태그의 다음줄에 영역이 잡힘
+                    (p, pre, div, h~ ....)
+        * 인라인요소 : content(내용)영역에 해당부분만 영역 차지
+                      줄바꿈이 적용되지 않아 옆으로 영역이 잡힘(다음줄로 넘기려면 br태그를 사용)
+                      (b, mark, s, img, span, ....)  
+    -->
+    <h1>영역 관련 태그</h1>
+
+    <h2>div태그와 span태그의 차이점1 : 줄바꿈 적용</h2>
+
+    <h3>div태그</h3>
+    <p>div태그는 블럭요소로 한줄 단위로 영역 차지</p>
+
+    <div class="red">첫번째 영역</div>
+    <div class="orange">두번째 영역</div>
+    <div class="yellow">세번째 영역</div>
+
+    <h3>span태그</h3>
+    <p>span태그는 인라인요소로 content영역만 차지</p>
+
+    <span class="red">첫번째 영역</span>
+    <span class="orange">두번째 영역</span>
+    <span class="yellow">세번째 영역</span>
+
+    <hr>
+
+    <h2>div태그와 span태그의 차이점2 : 영역 지정 방식</h2>
+
+    <h3>div태그 : 사각형 박스로 영역을 지정</h3>
+
+    <div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, voluptas consequuntur delectus non reprehenderit sint eius molestias nostrum. Eligendi excepturi vitae suscipit aspernatur aliquid quod soluta sunt adipisci esse aliquam.
+    </div>
+
+    <h3>span태그 : 문장 단위 영역을 지정</h3>
+
+    <span class="orange">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, voluptas consequuntur delectus non reprehenderit sint eius molestias nostrum. Eligendi excepturi vitae suscipit aspernatur aliquid quod soluta sunt adipisci esse aliquam.
+        Adipisci nostrum sit asperiores accusantium esse cum praesentium aspernatur necessitatibus modi! Dolores similique ipsam quaerat nesciunt, suscipit non, repellat aliquam quae dolorem recusandae placeat! Recusandae ea eveniet facere corrupti consequatur?
+    </span>
+
+    <h1>iframe</h1>
+    <p>웹 문서 안에 다른 웹 페이지를 추가하는 태그(인라인 요소)</p>
+
+    <iframe src="05.이미지및멀티미디어관련태그.html" width="800" height="600"></iframe>
+
+    <br><br><br><br><br>
+
+    <iframe width="928" height="522" src="https://www.youtube.com/embed/gZSQ8aLErIA" title="지브리 스튜디오 피아노 2024 🍒 휴식 스튜디오 지브리 피아노 💖 공부할 때나 일할 때 들을 수 있는" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</body>
+</html>
