@@ -59,6 +59,111 @@
     </fieldset>
    </form>
 
-  
+   <hr>
+
+    <h2>text와 관련된 input태그의 타입</h2>
+    <form action="">
+        <h3>type="text"</h3>
+        <p>
+            - 한 줄짜리 텍스트를 입력할 수 있는 텍스트상자(기본값 또한 input type의 기본값)
+        </p>
+        아이디 : <input type="text" name="userId" placeholder="아이디를 넣으세요" maxlength="12" required>
+
+        <h3>type="password"</h3>
+        <p>
+            - 비밀번호를 입력할 수 있는 텍스트 상자
+        </p>
+        비밀번호 : <input type="password" name="userPW" placeholder="영문,숫자,특수문자만 가능" maxlength="15" required>
+
+        <h3>type="search|url|email|tel"</h3>
+        <p>
+            - 겉모습은 일반 텍스트상자와 유사하지만 각각의 정보에 맞게 세분화된 기능 제공
+        </p>
+        검색 : <input type="search" name="q">
+        <br>
+
+        홈페이지 : <input type="url" name="homepage">
+        <br>
+
+        이메일 : <input type="email" name="email">
+        <br>
+
+        전화번호 : <input type="tel" name="tel">
+        <br>
+
+        <input type="submit">
+    </form>
+
+    <hr>
+
+    <h2>숫자와 관련된 input태그의 타입</h2>
+    <form action="">
+        <h3>type="number"</h3>
+        <p>
+            - 숫자값만 작성가능한 텍스트 상자<br>
+            - 스핀박스가 표시됨(스핀박스 : 위/아래 화살표 버튼)
+        </p>
+
+        수량 : <input type="number" name="amount" min="0" max="100" step="5" value="0">
+        <br>
+
+        <h3>type="range"</h3>
+        <p>
+            - 슬라이드바를 통해 숫자 지정 가능
+        </p>
+
+        점수 : <input type="range" name="score" min="0" max="100" step="10">
+        <br><br>
+
+        <input type="submit">
+    </form>
+
+    <h2>날씨 및 시간과 관련된 타입</h2>
+    <form action="">
+        <h3>type="date|month|week|time|datetime-local"</h3>
+
+        <p>연도, 월, 일 입력받을 수 있는 텍스트 상자</p>
+        date : <input type="date" name="dateIn">
+
+        <p>연도, 월까지만 입력받을 수 있는 텍스트 상자</p>
+        month : <input type="month" name="monthIn">
+
+        <p>해당 년도에 몇번째 주인지 입력받을 수 있는 텍스트 상자</p>
+        week : <input type="week" name="weekIn">
+
+        <p>오전|오후 시 분 입력받을 수 있는 텍스트 상자</p>
+        time : <input type="time" name="timeIn">
+
+        <p>연,월,일,오전/오후 시,분 입력받을 수 있는 텍스트 상자</p>
+        datetime-local : <input type="datetime-local" name="dtlIn">
+        <br><br>
+
+        <input type="submit" value="서버로 전송">&emsp;
+        <input type="reset">
+    </form>
+
+    <hr>
+
+    <h2>라디오버튼과 체크박스 관련 input태그의 타입</h2>
+    <form action="">
+        <h3>라디오버튼(type="radio")</h3>
+        <p>
+            - 여러개의 값들 중 오로지 1개만 선택해야 할 때
+            - name속성값이 같아야 1개가 선택
+            - 서버로 value의 값이 전송됨
+        </p>
+        성별 :
+        <input type="radio" name="gender" value="X">선택안함
+    </form>
+
+
+
+
+
+
+
+
+
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </body>
 </html>
