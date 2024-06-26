@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--외부스타일 링크-->
+    <link href="resources/css/01.style.css" rel="stylesheet">
     <title>Hello CSS</title>
     <!--
         내부스타일 방식 : 현재 문서에 적용시키고자하느 스타일 정보를 <style>태그내에 기입하는 방식
@@ -24,5 +26,11 @@
                             직접적으로 바로 기입하는 방식
     -->
     <h2 style="color:blueviolet; font-size: 30px;">인라인 style</h2>
+
+    <!--
+        외부 스타일 방식 : 스타일을 적용하고자하는 정보들을 별도의 css파일을 만들어
+                          이 html문서 head에 링크 정보를 기술하는 방식
+    -->
+    <h2 id="outer">외부 css파일</h2>
 </body>
 </html>

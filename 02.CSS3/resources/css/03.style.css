@@ -1,0 +1,102 @@
+/* =================== 1. 속성 선택자 ================= */
+/* div요소들 중 name속성값이 name1과 "일치"하는 요소 */
+div[name=name1] {
+    background-color: rgb(255, 225, 169);
+}
+
+/* div요소들 중 name속성값이 name1이 "포함"하는 요소(공백으로 구분, 단어단위로) */
+div[name~=name1] {
+    color:red;
+}
+
+/* div요소들 중 class속성값이 class로 "시작"하는 요소*/
+div[class^=class] {
+    background-color: aquamarine;
+}
+
+/* div요소들 중 class속성값이 class로 "시작"하는 요소(단어단위로 -로 구분)*/
+div[class|=class] {
+    color:blueviolet;
+}
+
+/* div요소들 중 class속성값이 ss로 "끝"하는 요소*/
+div[class$=ss] {
+    font-size: 20px;
+}
+
+/* div요소들 중 class속성값이 i를 "포함"하는 요소*/
+div[class*=i] {
+    border : 1px dotted ;
+}
+
+/* 응용 : class속성값이 div-class인 요소들 중에서 name속성값이
+          name3이 포함(단어로)되어 있는 요소에 배경색 스타일 적용*/
+
+.div-class[name~=name3] {
+    background-color: plum;
+}          
+
+/* ============= 2. 자손 선택자와 후손 선택자 =========== */
+/* id가 test1인 요소의 자손들 중 h4요소만 선택 */
+#test1>h4 {
+    background-color: orange;
+}
+
+/* ul의 자손 요소들 선택 */
+#test1>ul>li {
+    background-color: beige;
+}
+
+/* id가 test1인 요소의 후손들 중 li 요소 선택 */
+#test1 li {
+    color: rgb(75, 2, 144);
+}
+
+/* =================== 3. 동위 선택자 ================= */
+/* id가 test2인 형제들 중 바로 뒤에 나오는 div 요소 하나만 */
+#test2+div {
+    background-color: aquamarine;
+}
+
+#test2+ul {
+    background-color: yellow; /* 선택안됨(바로 뒤의 요소가 아니기 때문)*/
+}
+
+/* id가 test2인 형제들 중 ul 요소들 모두 선택 */
+/* #test2~div {color:rgb(176, 3, 41)} */
+#test2~ul {color:rgb(176, 3, 41)}
+
+/* =================== 4. 반응 선택자 ================= */
+.area {
+    width: 100px;
+    height: 100px;
+    background-color: yellowgreen;
+}
+#active-test:active {
+    background-color: rgb(83, 2, 158);
+    color: white;
+}
+#hover-test:hover {
+    background-color: orchid;
+    color: white;
+}
+
+/* =================== 5. 상태 선택자 ================= */
+input[type=checkbox]:checked {
+    width: 30px;
+    height: 30px;
+}
+
+/* 체크박스가 선택되면 글자도 커지게 스타일지정 */
+
+input[name^=user]:focus {
+    background-color: pink;
+}
+
+button:enabled {
+    background-color: rgb(188, 125, 248);
+}
+
+button:disabled {
+    background-color: yellowgreen;
+}
