@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello CSS</title>
+    <!--
+        내부스타일 방식 : 현재 문서에 적용시키고자하느 스타일 정보를 <style>태그내에 기입하는 방식
+                         이 html문서내에 스타일 정보를 같이 기술하는 방식
+    -->
+    <style>
+       #inner {
+            color :cadetblue;
+       }
+    </style>
+</head>
+<body>
+    <h1>Hello CSS</h1>
+
+    <h2 id="inner">내부 style태그</h2>
+
+    <!--
+        인라인 스타일 방식 : 스타일을 적용하고자하는 요소내에 style속성을 이용하여
+                            직접적으로 바로 기입하는 방식
+    -->
+    <h2 style="color:blueviolet; font-size: 30px;">인라인 style</h2>
+</body>
+</html>

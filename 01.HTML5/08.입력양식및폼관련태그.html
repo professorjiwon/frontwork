@@ -255,20 +255,69 @@
         <button type="button">일반버튼</button>
         <br><br>
         <button>type을 생략하면 submit버튼</button>
+    </form>
+    <br>
 
+    <hr>
 
+    <h2>select태그와 option태그</h2>
+    <p>
+        - 사용자에게 직접 키보드로 입력받는것이 아니라 내가 제시한 목록들 중 선택할 수 있는 태그
+        - 서버에 전송시 선택된  option의 값이 넘어감
+    </p>
+
+    <form action="test.do">
+        국적 :
+        <select name="national" >
+            <option value="us">미국</option>
+            <option value="ko" selected>한국</option>
+            <option value="eu">영국</option>
+            <option value="ru">러시아</option>
+            <option value="etc">기타</option>
+        </select>
         <br><br>
 
-        <input type="submit">&emsp;
-        <input type="reset">
+        점심메뉴선택 :
+        <select name="menu" multiple>
+            <option value="김밥">김밥</option>
+            <option value="낚지덮밥">낚지덮밥</option>
+            <option value="동태탕">동태탕</option>
+            <option value="돈까스">돈까스</option>
+            <option value="스시">스시</option>
+        </select>
+        <br><br>
+
+        수강신청 :
+        <select>
+            <optgroup label="공과대학">
+                <option value="archi">건축공학과</option>
+                <option value="machanic">기계공학과</option>
+                <option value="computer">컴퓨터공학과</option>
+                <option value="elec">전기전자공학과</option>
+                <option value="chemical">화학공학과</option>
+            </optgroup>
+            <optgroup label="인문대학">
+                <option value="history">사학과</option>
+                <option value="lang">어문학과</option>
+                <option value="philo">철학과</option>
+            </optgroup>
+        </select>
+        <br><br>
+
+        <h3>datalist : html5에서 새로 추가된 기능</h3>
+        <p>
+            - 내가 제시한 목록 중에서 선택도 할 수 있고, 만약 목록에 없다면 직접 입력 가능
+        </p>
+
+        제일 가고싶은 여행지 :
+        <input name="traval" list="travallist">
+        <datalist id="travallist">
+            <option value="ko">한국</option>
+            <option value="us">미국</option>
+            <option value="eu">영국</option>
+        </datalist>
+        <br><br>
+        <input type="submit">
     </form>
-
-
-
-
-
-
-
-  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </body>
 </html>
