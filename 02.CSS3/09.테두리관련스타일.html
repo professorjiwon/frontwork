@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>테두리 관련 스타일</title>
+    <style>
+        div{
+            width: 90px;
+            height: 90px;
+            border-width: 3px;
+            margin: 10px;
+            padding: 10px;
+            background-color: rgb(109, 184, 184);
+        }
+    </style>
+</head>
+<body>
+    <h1>테두리 관련 스타일</h1>
+    <pre>
+        선택자 {
+            * 테두리 스타일
+            border[-위치]-style:none|dotted|dashed|solid|double|groove|ridge|inset|outset
+
+            * 테두리 두께
+            border[-위치]-width: 테두리 두께;
+
+            * 테두리 색상
+            border[-위치]-color: 테두리 색상;
+
+            * 테두리 스타일, 두께, 색상을 한꺼번에
+            border: 두께 스타일 [색상];
+
+            * 테두리 모서리를 둥그렇게
+            border-radius: 반지름값;
+
+            * 박스에 그림자 효과
+            box-shadow: 가로거리(x) 세로거리(y) 흐림정도 번짐정도 색상;
+        }
+    </pre>
+
+    <div id="test1">test1</div>
+    <div id="test2">test2</div>
+    <div id="test3">test3</div>
+    <div id="test4">test4</div>
+    <div id="test5">test5</div>
+    <div id="test6">test6</div>
+    <div id="test7">test7</div>
+    <div id="test8">test8</div>
+    <div id="test9">test9</div>
+    <div id="test10">test10</div>
+</body>
+</html>

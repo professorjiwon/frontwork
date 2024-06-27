@@ -19,4 +19,45 @@
 #tt2 { text-transform: lowercase;}
 #tt3 { text-transform: capitalize;}
 
+/* =================== 4. text-shadow ================= */
+.shadow {
+    font-size: 50px;
+    font-weight: 900;
+}
+#ts1 {
+    color: red;
+    text-shadow: 5px 5px;
+    text-shadow: -5px -5px 5px rgb(250, 106, 106);
+}
 
+#ts2 {
+    color :white;
+    text-shadow: 0 0 10px yellowgreen;
+    text-shadow: 0 0 10px black; 
+}
+
+#ts3 {
+    text-shadow: 0 0 4px gray,
+                 0 -5px 4px yellow,
+                 0 -10px 8px orange,
+                 0 -15px 15px orangered,
+                 0 -20px 20px red;
+}
+
+/* =================== 5. text-align ================= */
+#justify { text-align: justify; }
+#right { text-align: right;}
+#center { text-align: center;}
+
+/* =================== 6. line-height ================= */
+#lineH1 {line-height: 30px;}
+#lineH2 {line-height: 3em;}
+#lineH3 {line-height: 200%;}
+
+#test {
+    width: 200px;
+    height: 200px;
+    background-color: aquamarine;
+    text-align: center;
+    line-height: 200px;
+}
