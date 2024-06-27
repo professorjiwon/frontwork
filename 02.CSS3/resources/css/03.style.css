@@ -92,6 +92,9 @@ input[type=checkbox]:checked {
 }
 
 /* 체크박스가 선택되면 글자도 커지게 스타일지정 */
+input[type=checkbox]:checked+label {
+    font-size: 30px;
+}
 
 input[name^=user]:focus {
     background-color: pink;
@@ -103,4 +106,49 @@ button:enabled {
 
 button:disabled {
     background-color: yellowgreen;
+}
+
+/* =================== 6. 일반 구조 선택자 ================= */
+#summer :first-child {
+    background-color: lightgray;
+}
+#summer :last-child {
+    background-color: lightpink;
+}
+#summer :nth-child(2) {
+    background-color: lightcyan;
+}
+#summer :nth-child(2n) {  /* 2*n(n=0부터 1씩증가) : 짝수번째  */
+    color: blue;
+}
+#summer :nth-child(2n+1) {
+    color: red;
+}
+
+/* =================== 7. 형태 구조 선택자 ================= */
+/* 첫번째는 div인데 p태그로 잘못 기재했다고 인식 안됨.
+   first-child : 첫번째가 중요 태그는 중요치않음
+#fall p:first-child {
+    background-color: lightgray;
+} 
+*/
+#fall p:first-of-type {
+    background-color: lightgray;
+}
+#fall p:last-of-type {
+    background-color: lightcoral;
+}
+#fall p:nth-of-type(3) {
+    background-color: lightgreen;
+}
+#fall p:nth-of-type(2n) {
+    color: blueviolet;
+}
+#fall p:nth-of-type(2n+1) {
+    color: rgb(2, 96, 122);
+}
+
+/* =================== 8. 부정 선택자 ================= */
+#winter :not(p:first-child) {
+    color :darkorange;
 }
