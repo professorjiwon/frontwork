@@ -51,8 +51,92 @@
         }
     </style>
 
+    <br>
+
+    <h3>font-size : 글꼴의 크기를 변경할 때 사용</h3>
+    <pre>
+        선택자 {font-size:크기(px|em|rem|%)}
+        - px : 픽셀단위로 고정크기
+        - em : 부모요소 글꼴크기의 배수(1.5em)
+        - rem : HTML태그의 폰트 크기의 비율로 계산(배수 1.5rem)
+        - % : 상위요소 폰트크기의 비율로 계산(150%)
+
+        - vw, vh : 현재 보이는 창의 크기에 따라 값이 변한다.(창의 width:1000px -> 1vw : 10px)
+
+        옵션들
+        * 고정값
+        xx-small : 10px
+        x-small : 10px
+        small : 13px
+        medium : 16px(기본값)
+        large : 18px
+        x-large : 24px
+        xx-large : 32px
+
+        * 상대값
+        larger : 부모의 글자크기에 120%
+        smaller : 부모의 글자크기에 부모*1/6
+    </pre>
 
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <ul>
+        <li id="fs1">고정크기 px테스트</li>
+        <li id="fs2">가변크기 em테스트</li>
+        <li id="fs3">가변크기 rem테스트</li>
+        <li id="fs4">가변크기 %테스트</li>
+    </ul>
+
+    <!----------------------- style--------------------------->
+    <style>
+        #fs1 {font-size: 20px;}
+        #fs2 {font-size: 1.5em;}
+        #fs3 {font-size: 1.5rem;}
+        #fs4 {font-size: 150%;}
+    </style>
+    <br>
+
+    <h3>font-weight : 글꼴의 두께 지정</h3>
+    <pre>
+        선택자 {
+            font-weight:normal|bold|bolder|lighter|100|400|900;
+        }
+    </pre>
+
+    <ul>
+        <li>원래굵기</li>
+        <li id="fw1">굵은 글꼴로 변경</li>
+        <li id="fw2">원래 굵기보다 더 굵게</li>
+        <li id="fw3">원래 굵기보다 더 가늘게</li>
+    </ul>
+
+    <!----------------------- style--------------------------->
+    <style>
+        #fw1 {font-weight: bold;} /* 700 */
+        #fw2 {font-weight: 900;}
+        #fw3 {font-weight: lighter;} /* 100 */
+    </style>
+    <br>
+
+    <h3>font-variant : 영문텍스트 문구를 작은 대문자로 변경할 때 사용</h3>
+    <pre>
+        선택자 {
+            font-variant:small-caps;
+        }
+    </pre>
+
+    <p>I LOVE YOU</p>
+    <p style="font-variant: small-caps;">i love you</p>
+
+    <br>
+
+    <h3>font-style : 텍스트 문구를 기울이고자 할 때 사용</h3>
+    <pre>
+        선택자 {
+            font-style:normal|italic|oblique;
+        }
+    </pre>
+
+    <p style="font-style: italic;">Lorem ipsum dolor sit amet.</p>
+    <p style="font-style: oblique;">Lorem ipsum dolor sit amet.</p>
 </body>
 </html>

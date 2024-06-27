@@ -1,0 +1,22 @@
+/* =================== 1. color ================= */
+#c {
+    color : red;
+    color : #0100FF;
+    color : rgb(201,0,167);
+    color : rgba(201,0,167,0.5); /* 0~1사이값 : 기본값1(불투명) */
+    color : hsl(240,50%,50%); /* h:색상값(0~360), s:채도(%), l:명도(%) */
+    color : hsla(240,50%,20%,0.9);
+}
+
+/* =================== 2. text-decoration ================= */
+#td1 { text-decoration: overline; }
+#td2 { text-decoration: line-through;}
+#td3 { text-decoration: underline;}
+#td4 { text-decoration: none;}
+
+/* =================== 3. text-transform ================= */
+#tt1 { text-transform: uppercase;}
+#tt2 { text-transform: lowercase;}
+#tt3 { text-transform: capitalize;}
+
+
