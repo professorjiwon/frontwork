@@ -80,6 +80,10 @@ div[class*=i] {
     background-color: orchid;
     color: white;
 }
+#link:link {color:aquamarine;}
+#link:hover {color: green;}
+#link:active {color: blueviolet;}
+#link:visited {color:tomato;}
 
 /* =================== 5. 상태 선택자 ================= */
 input[type=checkbox]:checked {
