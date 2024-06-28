@@ -8,6 +8,7 @@
 </head>
 <body>
     <h1>배치 관련 스타일</h1>
+
     <h3>position: 상대위치(relative)와 절대위치(absolute)</h3>
 
     <div class="outer">
@@ -15,5 +16,48 @@
         <div class="position yg" id="second">두번째 자식</div>
         <div class="position red" id="third">세번째 자식</div>
     </div>
+
+    <h3>position: 고정위치(fixed)</h3>
+
+    <div class="position yg" id="fixed-area"></div>
+    <br><br>
+
+    <hr>
+
+    <h3>z-index : 요소들을 순서대로 위로 쌓는 속성</h3>
+
+    <div class="outer">
+        <div class="z-test ye" id="z1">요소1</div>
+        <div class="z-test yg" id="z2">요소2</div>
+        <div class="z-test red" id="z3">요소3</div>
+    </div>
+    <br><br><br><br><br><br><br><br><br><br><br>
+
+    <hr>
+
+    <h3>visibility: 특정요소를 보이거나 보이지 않게 하는 스타일</h3>
+
+    <div class="vis-test red">영역1</div>
+    <!-- <div class="vis-test yg" style="display: none;">영역2</div> -->
+    <div class="vis-test yg" style="visibility: hidden;">영역2</div>
+    <div class="vis-test ye">영역3</div>
+
+    <b>visibility:hidden은 공간은 차지하고 있지만 display:none은 공간마저도 사라지게 함</b>
+
+    <br><br>
+
+    <hr>
+
+    <h3>float</h3>
+    <p>
+        페이지 내의 요소들을 화면으로부터 띄워서 왼쪽 또는 오른쪽에 배치하는 속성
+    </p>
+    
+    <div class="float-test">요소1</div>
+    <div class="float-test">요소2</div>
+    <div class="float-test">요소3</div>
+    <div class="float-test">요소4</div>
+    <div class="float-test">요소5</div>
+    <br clear="both">
 </body>
 </html>

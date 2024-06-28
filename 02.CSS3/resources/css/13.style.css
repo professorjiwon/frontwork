@@ -12,8 +12,51 @@
     width: 200px;
     height: 200px;
     position:absolute;
+    top: 50px;
+    left: 50px;
 }
 #third {
     width: 100px;
     height: 100px;
+    position: absolute;
+    top: 100px;
+    left: 100px;
+}
+
+#fixed-area {
+    width: 100px;
+    height: 100px;
+    /* position: fixed; */
+}
+
+.outer{position: relative;}
+.z-test {
+    border: 1px solid;
+    width: 150px;
+    height: 100px;
+    position: absolute;
+}
+#z1 {
+    top:100px;
+    left:100px;
+    z-index: 3; /* 어떤 숫자든 상관없음. 크다 작다만 설정해주면 됨(큰숫자가 맨 위에) */
+}
+#z2 {
+    top: 50px;
+    left: 50px;
+    z-index: 2;
+}
+#z3 {
+    z-index: 1;
+}
+
+.vis-test {
+    width: 100px;
+    height: 100px;
+}
+.float-test {
+    border: 1px solid;
+    width: 70px;
+    height: 30px;
+    float:left;
 }

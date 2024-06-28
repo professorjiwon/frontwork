@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="resources/css/15.style.css" rel="stylesheet">
+    <title>flex</title>
+</head>
+<body>
+    <h1>flex</h1>
+
+    <h3>기본 축을 기준으로 정렬</h3>
+    <pre>
+        * 부모요소 : flex-container
+          - display: flex
+          - flex-direction: row(기본값)|column|row-reverse|column-reverse
+          - justify-content: 메인축 정렬(flex-direction: row이면 row, column이면 column)
+          - align-items:크로스축 정렬(flex-direction: row이면 column)
+
+          - flex-wrap: 줄바꿈여부
+          - align-content: 여러줄인 경우의 크로스축 설정
+
+        * 자식요소(정렬의 주체) : flex-item  
+          - flex-grow : 빈 여백을 아이템들의 주어진 비율대로 늘어나면서 레이아웃 영역을 채움
+          - flex-shrink : 넘치는 아이템 영역을 분배해서 레이아웃 영역 안에 아이템들을 배치되도록 하는 방식
+          - flex-basis : 아이템의 크기를 직접 설정
+    </pre>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+        <li>10</li>
+    </ul>
+
+    <br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>
