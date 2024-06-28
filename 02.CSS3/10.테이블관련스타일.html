@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>테이블 관련 스타일</title>
+    <style>
+        table {
+            border: 1px solid;
+            border-collapse: separate;  /* 기본값:separate */
+            border-spacing: 10px;
+        }
+        thead, tfoot {
+            background-color:rgb(169, 245, 191);
+        }
+        tbody {
+            background-color: beige;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>테이블 관련 스타일</h1>
+    <table>
+        <caption>[표 1] 웹 브라우저의 종류</caption>
+        <thead>
+            <tr>
+                <th>브라우저명</th>
+                <th>제조사</th>
+                <th>홈페이지</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Edge</td>
+                <td>MS</td>
+                <td>https://microsoft.com</td>
+            </tr>
+            <tr>
+                <td>Chrome</td>
+                <td>Google</td>
+                <td>https://google.com</td>
+            </tr>
+            <tr>
+                <td>Safari</td>
+                <td>Apple</td>
+                <td>https://apple.com</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="2">총 브라우저 수</td>
+                <td>3</td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+</html>

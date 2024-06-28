@@ -4,16 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>테두리 관련 스타일</title>
-    <style>
-        div{
-            width: 90px;
-            height: 90px;
-            border-width: 3px;
-            margin: 10px;
-            padding: 10px;
-            background-color: rgb(109, 184, 184);
-        }
-    </style>
 </head>
 <body>
     <h1>테두리 관련 스타일</h1>
@@ -49,5 +39,73 @@
     <div id="test8">test8</div>
     <div id="test9">test9</div>
     <div id="test10">test10</div>
+
+    <button id="btn">로그인</button>&emsp;
+    <input type="submit" id="inputBtn" value="로그인">
+
+    <!----------------------style-------------------->
+    <style>
+        div{
+            width: 90px;
+            height: 90px;
+            border-width: 3px;
+            margin: 10px;
+            padding: 10px;
+            background-color: rgb(109, 184, 184);
+        }
+        #test1 {
+            border-style: dotted;
+            border-top-width: 10px;
+        }
+        #test2 {
+            box-shadow: 5px 5px 10px 5px gray;
+        }
+        #test3 {
+            /* border-top-style: solid; */
+            border-style: dashed double solid dotted;
+        }
+        #test4 {
+            border-style: dashed;
+            border-left-color: blueviolet;
+        }
+        #test5 {
+            border-style: groove;
+            border-width: 10px;
+        }
+        #test6 {
+            border-style: ridge;
+            border-width: 10px;
+        }
+        #test7 {
+            border-style: outset;
+            border-width: 10px;
+        }
+        #test8 {
+            border-style: inset;
+            border-width: 10px;
+        }
+        #test9 {
+            border-style: solid;
+            /* 
+            border-radius: 20px;
+            border-top-left-radius: 40px;
+             */
+            border-radius: 10px 30px 20px;
+        }
+        #test10 {
+            border:10px dotted pink;
+        }
+
+        #btn, #inputBtn {
+            border:none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            background-color: rgb(27, 109, 133);
+            color: white;
+        }
+        #btn:hover, #inputBtn:hover {
+            background-color: rgb(244, 131, 248);
+        }
+    </style>
 </body>
 </html>
