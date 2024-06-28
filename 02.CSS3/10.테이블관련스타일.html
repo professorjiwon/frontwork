@@ -7,16 +7,32 @@
     <style>
         table {
             border: 1px solid;
-            border-collapse: separate;  /* 기본값:separate */
-            border-spacing: 10px;
+            border-collapse: collapse;  /* 기본값:separate 표테두리와 셀테두리 분리하기,합치기 */
+            border-spacing: 10px; /* 표 테두리와 셀 테두리의 간격 */
+            width: 450px;
+            /* 테이블의 길이 고정 */
+            table-layout: fixed;
         }
         thead, tfoot {
-            background-color:rgb(169, 245, 191);
+            background-color:rgb(140, 169, 148);
         }
         tbody {
             background-color: beige;
         }
+        th, td {
+            width: 150px;
+            height: 30px;
+            padding: 5px;
+            text-align: center;
+            vertical-align: middle; /* 테이블에서만 사용가능 top|middle(기본값)|bottom */
+            border: 1px dotted;
 
+            /* 글자의 공백이 없어도 중간에 끊이서 내림 */
+            word-break: break-all;
+        }
+        .borderTop {
+            border-top: 2px double red;
+        }
     </style>
 </head>
 <body>
@@ -27,7 +43,8 @@
             <tr>
                 <th>브라우저명</th>
                 <th>제조사</th>
-                <th>홈페이지</th>
+                <!-- <th>홈페이지</th> -->
+                <th>HomepageHomepageHomepageHomepageHomepageHomepageHomepageHomepageHomepageHomepageHomepageHomepageHomepageHomepageHomepageHomepage</th>
             </tr>
         </thead>
         <tbody>
@@ -49,8 +66,8 @@
         </tbody>
         <tfoot>
             <tr>
-                <td colspan="2">총 브라우저 수</td>
-                <td>3</td>
+                <td colspan="2" class="borderTop">총 브라우저 수</td>
+                <td class="borderTop">3</td>
             </tr>
         </tfoot>
     </table>

@@ -1,0 +1,49 @@
+body {
+    background-color: cadetblue;
+    background-color: rgba(95,158,160,0.3);
+}
+#div-bg {
+    background-color: white;
+    padding: 20px;
+    border: 1px solid rgb(49, 85, 86);
+    width: 50%;
+}
+.div-test {
+    margin: 30px;
+    background-color: yellowgreen;
+    border: 10px dashed;
+    padding: 20px;
+}
+#div1 {background-clip: border-box;}
+#div2 {background-clip: padding-box;}
+#div3 {background-clip: content-box;}
+
+#bg-img {
+    border: 1px solid;
+    width: 70%;
+    height: 800px;
+
+    background-image: url("../img/img1.png");
+    background-repeat: no-repeat;
+    /*     
+    background-repeat: repeat-y;
+    background-repeat: repeat-x; 
+    */
+    background-size: auto;      /* 기본값 원래 이미지 사이즈*/
+    background-size: contain;   /* 해당 요소안에 이미지가 모두 보이게 */
+    background-size: cover;     /* 해당 요소안에 이미지가 가득 차게 */
+    background-size: 300px;     /* 가로길이(세로는 원래이미지의 비율에 맞춰) */
+    background-size: 300px 300px;   /* 가로길이 세로길이 */
+    background-size: 30%;
+    background-size: 50% 50%;
+    background-size: auto;
+
+    background-position: left top; /* 기본값 */
+    background-position: center bottom;
+    background-position: center center;
+    background-position: 20% 30%;
+    background-position: 50% 50%;
+
+    background-attachment: scroll; /* 기본값 */
+    background-attachment: fixed;  /* 이미지 고정 */
+}

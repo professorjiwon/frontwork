@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="resources/css/11.style.css" rel="stylesheet">
+    <title>배경 관련 스타일</title>
+</head>
+<body>
+    <h1>배경 관련 스타일(background~ )</h1>
+
+    <h3>background-color : 배경색을 지정하고자 할 때</h3>
+
+    <div id="div-bg">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit necessitatibus atque perferendis deleniti magni doloremque fugiat pariatur commodi repellat incidunt dolores illum ipsam minima doloribus, asperiores eveniet nisi nesciunt quis.
+        Non laborum nulla incidunt adipisci. Soluta nihil nulla facere magni deserunt sint et, iusto obcaecati error odit. Laboriosam maxime maiores eum nobis non, ducimus beatae quibusdam ratione, in aliquid natus?
+        Excepturi cum placeat amet maxime, voluptate eveniet obcaecati ullam quisquam ipsam culpa totam temporibus dolores qui, praesentium quasi explicabo adipisci, magnam pariatur earum necessitatibus facere repellat! Tempore eos iure necessitatibus.
+    </div>
+
+    <hr>
+
+    <h3>background-clip : 배경을 적용시키고자 하는 범위 지정할 때 사용</h3>
+
+    <pre>
+        선택자 {
+            backaground-clip:border-box(기본값)|padding-box|content-box
+        }
+    </pre>
+
+    <div class="div-test" id="div1">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsa, at deleniti. Ut nobis voluptas voluptate rerum. Magnam blanditiis, minima odit aliquid modi quae, fugiat est voluptate repellat sit doloribus at.</div>
+    <div class="div-test" id="div2">Repudiandae molestias pariatur suscipit omnis quis quasi, perspiciatis mollitia, ipsa, ea natus asperiores saepe? Accusamus aut voluptate ea at. Doloremque dicta dolor sint, beatae ipsam ratione modi veniam similique impedit?</div>
+    <div class="div-test" id="div3">Ipsa iure excepturi similique accusantium modi quaerat unde porro repudiandae. At ex et praesentium numquam vitae placeat labore quo sapiente nisi vero, in officiis fugiat neque error distinctio aperiam eos?</div>
+
+    <hr>
+
+    <h3>배경 이미지 넣기</h3>
+    <pre>
+        선택자 {
+            background-image:url("이미지경로");
+            background-repeat:repeat|repeat-x|repeat-y|no-repeat;
+            background-size:auto|contain|cover|px px|% %;
+            background-position:좌/우/가운데  위/아래/가운데|px px|% %;
+            backgroung-attachment:scroll|fixed;
+        }
+    </pre>
+
+    <div id="bg-img"></div>
+</body>
+</html>

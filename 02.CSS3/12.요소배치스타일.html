@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>요소 배치 스타일</title>
+</head>
+<body>
+    <!--
+        블럭요소 : 한줄로 영역을 차지하는 요소
+        인라인 요소 : content부분만 영역을 차지하는 요소
+
+        * 요소영역 : content영역 + padding영역 + border영역
+        * 요소 바깥쪽 영역 : margin영역
+    -->
+    <h1>요소 배치 스타일</h1>
+
+    <h3>width, height</h3>
+
+    <p>
+        기본적으로 내용을 차지하는 content영역의 가로, 세로 길이 조절
+    </p>
+
+    <h4>고정크기(px)</h4>
+    <div id="test1" class="size-test"></div>
+
+    <h4>가변크기(%)</h4>
+    <div id="test2" class="size-test"></div>
+
+    <!---------------------- style ------------------------->
+    <style>
+        .size-test {
+            border: 10px solid red
+        }
+        #test1 {
+            width: 400px;
+            height: 200px;
+        }
+        #test2 {
+            width: 50%;
+            height: 150px;
+        }
+    </style>
+
+    <hr>
+
+    <h1>display : 화면 배치 방법 변경</h1>
+
+    <pre>
+        선택자 {
+            display:inline|block|inline-block
+        }
+    </pre>
+
+    <h3>* display:inline</h3>
+
+    <div class="display-test inline red">첫번째</div>
+    <div class="display-test inline yellow">두번째</div>
+    <div class="display-test inline pink">세번째</div>
+    <div class="display-test inline green">네번째</div>
+    <div class="display-test inline purple">다섯번째</div>
+    <p><b>
+        display:inline만 하게 되면 width와 height의 스타일 속성은 적용되지 않음
+    </b></p>
+    <br><br>
+
+    <h3>* display:inline-block</h3>
+    <div class="display-test inline-block red">첫번째</div>
+    <div class="display-test inline-block yellow">두번째</div>
+    <div class="display-test inline-block pink">세번째</div>
+    <div class="display-test inline-block green">네번째</div>
+    <div class="display-test inline-block purple">다섯번째</div>
+    <br><br>
+    
+    <h3>* display:block</h3>
+    <span class="display-test block red">첫번째</span>
+    <span class="display-test block yellow">두번째</span>
+    <span class="display-test block pink">세번째</span>
+    <span class="display-test block green">네번째</span>
+    <span class="display-test block purple">다섯번째</span>
+
+
+    
+    <!---------------------- style ------------------------->
+    <style>
+        .display-test {
+            border: 1px solid;
+            width: 150px;
+            height: 150px;
+        }
+        .red {background-color: red;}
+        .yellow {background-color: yellow;}
+        .pink {background-color: pink;}
+        .green {background-color: green;}
+        .purple {background-color: purple;}
+
+        .inline {display: inline;}
+
+        .inline-block {display: inline-block;}
+
+        .block {display: block;}
+    </style>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>

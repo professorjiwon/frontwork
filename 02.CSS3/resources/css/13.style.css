@@ -1,0 +1,19 @@
+.position {border:1px solid;}
+.ye {background: yellow;}
+.yg {background: yellowgreen;}
+.red {background: red;}
+
+.outer {position: relative;}
+#first {
+    width: 300px;
+    height: 300px;
+}
+#second {
+    width: 200px;
+    height: 200px;
+    position:absolute;
+}
+#third {
+    width: 100px;
+    height: 100px;
+}
