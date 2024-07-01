@@ -1,0 +1,40 @@
+#wrapper {
+    width: 950px;
+    margin: 0 auto;
+}
+/* 헤더 */
+header {
+    width: 950px;
+    height: 120px;
+    background-color: rgb(51, 77, 78);
+    border-bottom: 1px solid;
+}
+.header-text {
+    font-size: 40px;
+    color: white;
+    text-align: center;
+    line-height: 120px;
+}
+#variable {
+    display: none;
+}
+/* 본문 */
+.content {
+    float: left;
+    width: 700px;
+    height: 400px;
+    background-color: beige;
+}
+/* aside */
+.right-side {
+    float: right;
+    width: 240px;
+    height: 400px;
+    background-color: chocolate;
+}
+/* footer */
+footer {
+    clear: both;
+    height: 120px;
+    background-color: aquamarine;
+}

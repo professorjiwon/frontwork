@@ -1,0 +1,50 @@
+header {
+    text-align: center;
+}
+#menus {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.menu-item {
+    width: 300px;
+    height: 200px;
+    margin: 5px;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+#menus h2 {
+    color: white;
+    text-shadow: 3px 3px 5px black;
+}
+#menu1 {
+    background-image: url(../img/food1.jpg);
+}
+#menu2 {
+    background-image: url(../img/food2.jpg);
+}
+#menu3 {
+    background-image: url(../img/food3.jpg);
+}
+#menu4 {
+    background-image: url(../img/food4.jpg);
+}
+#menu5 {
+    background-image: url(../img/food5.jpg);
+}
+#menu6 {
+    background-image: url(../img/food6.jpg);
+}
+#menu7 {
+    background-image: url(../img/food7.jpg);
+}
+#menu8 {
+    background-image: url(../img/food1.jpg);
+}
+#menu9 {
+    background-image: url(../img/food2.jpg);
+}
+#menu10 {
+    background-image: url(../img/food3.jpg);
+}
