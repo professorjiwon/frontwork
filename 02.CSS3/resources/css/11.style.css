@@ -25,10 +25,9 @@ body {
 
     background-image: url("../img/img1.png");
     background-repeat: no-repeat;
-    /*     
+/*          
     background-repeat: repeat-y;
-    background-repeat: repeat-x; 
-    */
+    background-repeat: repeat-x;  */
     background-size: auto;      /* 기본값 원래 이미지 사이즈*/
     background-size: contain;   /* 해당 요소안에 이미지가 모두 보이게 */
     background-size: cover;     /* 해당 요소안에 이미지가 가득 차게 */
@@ -46,4 +45,4 @@ body {
 
     background-attachment: scroll; /* 기본값 */
     background-attachment: fixed;  /* 이미지 고정 */
-}
+}   
