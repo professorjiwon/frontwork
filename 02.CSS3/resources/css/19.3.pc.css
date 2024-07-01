@@ -1,3 +1,33 @@
-body {
-    background-color: cadetblue;
+/* 전체 */
+#wrapper {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+/* header */
+header {
+    height: 80px;
+    line-height: 80px;
+}
+
+/* 본문 */
+section {
+    float: right;
+    width: 680px;
+    height: 500px;
+    background-color: rgb(248, 204, 177);
+}
+
+/* aside */
+aside {
+    float: left;
+    width: 300px;
+    height: 500px;
+    background-color: rgb(159, 174, 250);
+}
+
+/* footer */
+footer {
+    clear: both;
+    height: 50px;
 }
