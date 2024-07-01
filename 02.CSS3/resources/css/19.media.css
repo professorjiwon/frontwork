@@ -1,0 +1,114 @@
+/* 
+    * css 미디어 쿼리
+      : 미디어쿼리는 단말기 유형, 화면 해상도, 뷰포트 너비 등에 따라 스타일을 적용 할 때 사용
+
+    * 미디어 유형(단말기 유형)
+      - all : 모든장치
+      - print : 인쇄 결과물 및 출력 미리보기 화면에 표시 중인 문서
+      - screen : 스크린 화면
+      - speech : 음성 합성장치
+
+    * 논리 연산자
+      - and
+      - not
+      - only
+      - 쉼표(,) : or를 의미
+*/
+@media screen and (max-width:600px){
+    /* 전체 */
+    #wrapper {
+        width: 100%;
+    }
+
+    /* header */
+    header {
+        height: 60px;
+        line-height: 60px;
+    }
+
+    /* 본문 */
+    section {
+        height: 300px;
+        background-color: cornsilk;
+    }
+
+    /* aside */
+    aside {
+        background-color: rgb(185, 250, 252);
+    }
+
+    /* footer */
+    footer {
+        height: 50px;
+    }
+}
+@media screen and (min-width:601px) and (max-width:999px) {
+    /* 전체 */
+    #wrapper {
+        width: 100%;
+    }
+
+    /* header */
+    header {
+        height: 80px;
+        line-height: 80px;
+    }
+
+    /* 본문 */
+    section {
+        float: left;
+        width: 68%;
+        height: 500px;
+        background-color: rgb(240, 184, 252);
+    }
+
+    /* aside */
+    aside {
+        float: right;
+        width: 30%;
+        height: 500px;
+        background-color: rgb(233, 246, 145);
+    }
+
+    /* footer */
+    footer {
+        clear: both;
+        height: 50px;
+    }
+}
+@media screen and (min-width:1000px) {
+    /* 전체 */
+    #wrapper {
+        width: 1000px;
+        margin: 0 auto;
+    }
+
+    /* header */
+    header {
+        height: 80px;
+        line-height: 80px;
+    }
+
+    /* 본문 */
+    section {
+        float: right;
+        width: 680px;
+        height: 500px;
+        background-color: rgb(248, 204, 177);
+    }
+
+    /* aside */
+    aside {
+        float: left;
+        width: 300px;
+        height: 500px;
+        background-color: rgb(159, 174, 250);
+    }
+
+    /* footer */
+    footer {
+        clear: both;
+        height: 50px;
+    }
+}
+    
