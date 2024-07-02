@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>데이터입출력</title>
+    <style>
+        .area {
+            border: 1px solid;
+        }
+    </style>
+</head>
+<body>
+    <h1>자바스크립트에서의 데이터입출력</h1>
+    <!--
+        * window : 자바스크립트 내장 객체로 브라우저 창이 열릴때마다 하나씩 만들어지는 객체
+                    브라우저 창 안에 존재하는 모든 요소들의 최상위 객체(생략가능)
+        * document : 웹 문서마다 하니씩 만들어지는 객체(html문서에 대한 정보들을 가지고 있음)
+    -->
+    <h2>1. 데이터 출력하는 구문</h2>
+    <p>
+        1) [window.]alert("알림창에 출력할 문구");
+        2) [window.]console.log("콘솔창에 출력할 문구");
+        3) document.write("화면에 출력할 문구");
+        4) 선택한요소.innerHTML|innerText="요소에 출력할 문구"
+    </p>
+
+    <h3> 3) document.write("화면에 출력할 문구");</h3>
+    <button onclick="docWrite();">화면에 출력</button>
+
+    <script>
+        function docWrite() {
+            document.write("안녕하세요");
+            document.write("<br><b>안녕하세요</b><br><h2>반가워요</h2>");
+            // 출력할 문구에 html태그가 있을 경우 해석하여 시각적인 요소로 보여짐
+
+            // document.write("<table><tr><th></th><th></th></tr><tr><td></td><td></td></tr></table>");
+            var print = "<table border='1'>";
+                print += "  <tr>";
+                print += "      <td>HTML</td>";
+                print += "      <td>CSS</td>";
+                print += "      <td>JAVASCRIPT</td>";
+                print += "  </tr>";
+                print += "</table>";
+            document.write(print);
+
+            document.write("<table border='1'>"
+                        + "     <tr>"
+                        + "         <td>HTML</td>"
+                        + "         <td>CSS</td>"
+                        + "         <td>JAVASCRIPT</td>"
+                        + "     </tr>"
+                        + " </table>"
+            );
+
+        }
+    </script>
+    
+    <h3> 4) 선택한요소.innerHTML|innerText="요소에 출력할 문구"</h3>
+    <div class="area" id="area1">
+        자바스크립트에서 어떤 요소(element)안의 값(content)을 가지고 온다거나
+        변경하고자 할 때 <b>innerHTML, innerText</b>라는 속성에 접근
+    </div>
+
+    <button onclick="tagValue();">확인</button>
+
+    <script>
+        function tagValue() {
+            var divE1 = document.getElementById("area1");
+            console.log(divE1);
+            console.dir(divE1);
+            // console.dir : 해당 값의 디렉토리 구조를 보고자 할 때 사용(속성에 대한 정보)
+
+            // 선택된 요소의 속성에 접근가능(.을 통해 접근)
+            console.log(divE1.id);      // id : 해당 요소의 아이디 속성의 값
+            console.log(divE1.className);   // class : 해당 요소의 클래스 속성의 값
+
+            console.log(divE1.innerHTML);   // innerHTML : 요소의 content영역안의 html태그까지 다 포함
+            console.log(divE1.innerText);   // innerText : 요소의 content영역안의 text만 포함(html태그x)
+
+            // 해당 요소의 속성값 변경 가능 : 속성에 접근 후 대입을 통해 변경
+            divE1.innerHTML = "<h2>innnerHTML로 속성값 변경함</h2>";
+            divE1.style.backgroundColor = "green";
+        }
+    </script>
+</body>
+</html>
