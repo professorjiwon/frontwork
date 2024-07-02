@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>요소가져오기(접근하기)</title>
+    <style>
+        .area {
+            border: 1px solid;
+            width: 300px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h1>HTML요소에 접근하기(해당 요소 객체 가져오기)</h1>
+
+    <h3>1) 아이디를 이용하여 요소 가져오기</h3>
+    <div class="area" id="area1"></div>
+    <button onclick="accessId();">아이디로 접근</button>
+
+    <script>
+        function accessId() {
+            // 아이디로 요소 가져올 때
+            // document.getElementById("아이디명") => 선택된 요소객체 반환
+            var area1 = document.getElementById("area1");
+
+            // 선택된 요소의 속성값 가져온다거나 변경가능
+            // 속성 접근하고자 할 때 => 선택된요소.접근하고자하는 속성
+            area1.innerHTML = "아이디로 접근 성공!<br>";
+
+            // 선택된 요소에 스타일 변경
+            area1.style.backgroundColor = "yellow";
+            area1.style.color = "red";
+            area1.style.width = "200px";
+            area1.style.height = "200px";
+        }
+    </script>
+
+    <br><br>
+
+    <fieldset>
+        <legend>range</legend>
+        <!-- oninput : input에 값이 들어오는 이벤트 발생하면 -->
+        <input type="range" name="score" min="0" max="100" value="0"
+          oninput="document.getElementById('score').innerHTML=this.value;">
+        <span id="score">0</span>  
+    </fieldset>
+
+    <br><br>
+
+    <div class="area" id="area2" style="background-color: azure;"></div>
+    <button onclick="changeColor();">클릭할 때 색 변경</button>
+
+    <script>
+
+    </script>
+</body>
+</html>
