@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>자바스크립트 개요</title>
+    <script src="resources/js/01.jscript.js" rel="javascript"></script>
 </head>
 <body>
     <!--
@@ -48,5 +49,65 @@
         <li>웹에 특화된 기술임=>내부에서 제공되는 기능이 제한적</li>
         <li>html소스코드에서 같이 작성하면 외부에 공개됨 => 보안의 취약점 발생</li>
     </ul>
+
+    <h3>4. 자바스크립트 사용 방법</h3>
+    <ol>
+        <li>inline(인라인) : 태그 내에 간단한 소스코드를 작성하여 실행되게 하는 방법</li>
+        <li>internal(내부) : html 문서내에 소스코드를 작성하여 실행되게 하는 방법</li>
+        <li>external(외부) : 별도의 .js파일로 소스코드를 작성하여 가져다가 실행되게 하는 방법</li>
+    </ol>
+
+    <h4>1) inline 방식</h4>
+    <p>
+        태그 내에 간단한 소스코드를 작성하여 실행되게 하는 방법<br><br>
+
+        [표현법]<br>
+        &lt;태그 on이벤트명 = "해당 요소에 이벤트 발생시 실행할 소스코드" >
+    </p>
+
+    <!-- 소스코드가 소량일 경우 사용 -->
+    <button onclick="window.alert('알림창출력 버튼 클릭!!!');">알림창 출력</button>
+    <button onclick="console.log('콘솔출력 버튼 클릭!!!');">콘솔창 출력</button><br><br>
+
+    <h4>2) internal 방식</h4>
+    <p>
+        html 문서내에 소스코드를 작성하여 실행되게 하는 방법<br>
+        script 태그는 head태그나 body태그 어디든 다 작성가능<br><br>
+
+        [표현법]<br>
+        &lt;script>
+            소스코드
+        &lt;/script>
+    </p>
+
+    <button id="btn">알림창 출력</button>
+    <button onclick="btnClick()">콘솔창 출력</button><br><br>
+
+    <script>
+        // 자바스크립트 영역 주석
+
+        // 이벤트를 부여하고자 하는 요소를 선택하여 변수에 담아두기
+        var btn = document.getElementById("btn");   // 버튼요소객체가 담겨있는 변수
+        console.log(btn);
+
+        // 해당 버튼요소에 클릭이벤트 발생시 실행할 함수(이벤트 핸들러) 정의
+        btn.onclick = function() {
+            window.alert("내부 스크립트에서 버튼 클릭!!!");
+        }
+
+        function btnClick() {
+            console.log("내부 스크립에서 콘솔버튼 클릭!!!")
+        }
+
+    </script>
+
+    <h4>3) external 방식</h4>
+    <p>
+        별도의 .js파일로 소스코드를 작성하여 가져다가 실행되게 하는 방법<br><br>
+    </p>
+
+    <button onclick="test();">알림창 출력</button>
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </body>
 </html>
