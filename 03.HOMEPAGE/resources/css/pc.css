@@ -2,7 +2,6 @@
 body {
     width: 1000px;
     margin: 0 auto;
-    border: 1px solid;
 }
 
 /* header */
@@ -40,17 +39,24 @@ header>form {float: right; margin-top: 11px;}
 section {
     float: left;
     width: 650px;
+    padding-left: 10px;
 }
 /* aside */
 aside { 
     float: right;
-    width: 345px;
+    width: 340px;
 }
 aside img {
-    width: 345px;
+    width: 340px;
     margin-top: 4px;
 }
 /* footer */
 footer {
     clear: both;
+    height: 110px;
+    padding-left: 30px;
+    padding-top: 30px;
+    font-size: 0.8em;
+    background-color: rgb(0, 0, 64);
+    color: white;
 }
