@@ -138,5 +138,95 @@
             }
         }
     </script>
+
+    <h3>4) 클래스를 이용하여 요소 가져오기</h3>
+    <div class="test"></div>
+    <p class="test"></p>
+    <ul class="test">
+        <li></li>
+        <li></li>
+    </ul>
+    <pre class="test test1"></pre>
+
+    <button onclick="accessClass();">class로 접근</button>
+
+    <script>
+        function accessClass() {
+            // class 속성으로 요소 가져올 때
+            // document.getElementsByClassName("class속성값") => 선택된 요소들을 배열에 담아서 반환
+            var arr = document.getElementsByClassName("test");
+            console.log(arr);
+
+            for(var i=0; i<arr.length; i++) {
+                console.log(arr[i]);
+            }
+        }
+    </script>
+
+    <h3>5) 내가 원하는 요소를 자유자재로 가져오기(선택자 활용)</h3>
+
+    <div id="test2">테스트입니다</div>
+    <div class="test2">
+        <h2>안녕</h2>
+        <h2>좋은아침</h2>
+    </div>
+    <span>ㅎㅎㅎ</span>
+    <br>
+    <button onclick="accessSelector();">클릭</button>
+
+    <script>
+        function accessSelector() {
+            // 선택자를 이용하여 요소를 가져오고자 할 때
+            // document.querySelector("선택자") => 선택된 첫번째 요소 객체 하나만 반환
+            // document.querySelectorAll("선택자") => 선택된 요소객체들을 배열에 담아서 반환
+
+            var divE1 = document.querySelector("#test2");
+            var h2E1 = document.querySelector(".test2>h2");
+            console.log(h2E1);
+            var spanE1 = document.querySelector(".test2+span");
+            console.log(spanE1);
+
+            var h2E2 = document.querySelectorAll(".test2>h2");
+            for(var i=0; i<h2E2.length; i++) {
+                console.log(h2E2[i]);
+            }
+        }
+    </script>
+
+    <br>
+
+    <div>
+        <p class="cls1">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis mollitia, nisi debitis molestiae sunt nobis dignissimos delectus inventore doloremque, exercitationem blanditiis ab, assumenda tempora! Facilis natus placeat fugiat qui architecto.
+        </p>
+        <p class="cls2" id="p">
+            Soluta, maxime commodi, facere velit harum repellendus ex veniam, nam officiis aspernatur assumenda cupiditate dolore sit facilis asperiores suscipit tenetur ullam ut rerum sint! Rem esse assumenda odio facere dolore!
+        </p>
+        <p class="cls1">
+            Incidunt dolorum, magnam ea aspernatur autem ut voluptatum esse velit nobis non cupiditate sequi perferendis saepe error quia magni modi nihil, inventore atque quo aperiam. Enim quo repellendus maiores ab.
+        </p>
+    </div>
+
+    <button onclick="select();">querySelector</button>
+    <button onclick="selectAll();">querySelectorAll</button>
+
+    <script>
+        function select() {
+            var p2 = document.querySelector("#p");
+            p2.style.color = "hotpink";
+        }
+        function selectAll() {
+            var p = document.querySelectorAll(".cls1");
+            for(var i=0; i<p.length; i++) {
+                p[i].style.color = "green";
+            }
+        }
+    </script>
+
+
+
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </body>
 </html>

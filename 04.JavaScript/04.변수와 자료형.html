@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>변수와 자료형</title>
+</head>
+<body>
+    <h1>변수와 자료형</h1>
+    <h2>변수 선언시 var뿐만 아니라 let, const를 이용하여 선언 가능</h2>
+
+    <h3>* var, let, const의 차이점</h3>
+
+    <h4>1) 변수 선언 방법</h4>
+    <button onclick="diffDeclare();">클릭</button>
+
+    <script>
+        function diffDeclare() {
+            // 1. var은 중복선언 가능(단점), 재할당 가능
+            var userId = "user01";
+            console.log(userId);
+
+            var userId = "user02"; // 중복선언 가능(단점)
+            console.log(userId);
+
+            userId = "user03";      // 재할당
+            console.log(userId);
+
+            console.log("-------------------");
+
+            // 2. let은 중복선언 불가능, 재할당 가능
+            let userPw = "pass01";
+            console.log(userPw);
+
+            // let userPw = "pass02";
+            // console.log(userPw);
+
+            userPw = "pass03";
+            console.log(userPw);
+
+            console.log("-------------------");
+
+            // 3. const는 중복선언 불가능, 재할당 불가능(상수 같은 개념 == 한번 초기화된 값 변경 불가)
+            //      그러나 객체안의 자료는 변경가능
+            const userName = "홍길동";
+            console.log(userName);
+
+            // const userName = "김말똥";   // 중복선언 불가
+            // userName = "김말똥";         // 재할당 불가
+            // console.log(userName);
+
+            /*
+                * var은 자유롭게 변수 선언, 사용할 수 있다는 장점이 있지만
+                  중복된 변수가 남발할 수 있고, 의도치 않게 값이 변경되어있을 수 있음 => 가장 큰 단점
+                  => 단점을 보완하여 나온것이 let, const이다
+
+                * 권장사항 : let, const를 위주로 사용
+            */
+        }
+    </script>
+
+    <h4>2) 스코프(사용가능 범위)</h4>
+    <button onclick="diffScope();">클릭</button>
+
+    <script>
+        function diffScope() {
+            // 1. var : 변수가 선언되는 "함수 영역"내에서 사용가능
+            var name = "홍길동";
+            console.log(name);
+
+            if(true) {
+                var age = 20;
+            }
+            console.log(age);
+
+            for(var i=0; i<10; i++) {
+
+            }
+            console.log(i);
+
+            console.log("-------------------");
+
+            // 2. let, const (block scope) == 변수가 선언된 블럭{} 내에서만 사용가능(자바와 유사)
+            let address = "서울";
+
+            if(true) {
+                let gender = "M";
+                const hobby = "운동";
+            }
+            // console.log(gender);  // 사용불가
+            // console.log(hobby);   // 사용불가
+
+            scopeTest();
+        }
+        
+        function scopeTest() {
+            console.log(name);
+        }
+    </script>
+
+    <h3>* 변수 선언 위치에 따른 전역변수/지역변수</h3>
+
+    <script>
+        window.onload = function() { // 현재 문서가 다 로딩된 직후에 실행시킬 코드
+            console.log("문서 로딩 완료!");
+        }
+    </script>
+</body>
+</html>

@@ -34,7 +34,7 @@
             document.write("<br><b>안녕하세요</b><br><h2>반가워요</h2>");
             // 출력할 문구에 html태그가 있을 경우 해석하여 시각적인 요소로 보여짐
 
-            // document.write("<table><tr><th></th><th></th></tr><tr><td></td><td></td></tr></table>");
+            // document.write("<table border='1'><tr><td>HTML</td><td>CSS</td></tr><tr><td></td><td></td></tr></table>");
             var print = "<table border='1'>";
                 print += "  <tr>";
                 print += "      <td>HTML</td>";
@@ -50,10 +50,7 @@
                         + "         <td>CSS</td>"
                         + "         <td>JAVASCRIPT</td>"
                         + "     </tr>"
-                        + " </table>"
-            );
-
-
+                        + " </table>");
         }
     </script>
     
@@ -127,7 +124,7 @@
         }
     </script>
 
-    <h3>[window.]prompt("질문내용");</h3>
+    <h3>2) [window.]prompt("질문내용");</h3>
     <p>
         prompt호출시 "질문내용"과 입력할 수 있는 "텍스트 상자"와
         "확인/취소" 버튼이 보여지는 알림창 발생<br>
@@ -146,7 +143,7 @@
             console.log("나이 : " + age);
 
             var divE3 = document.getElementById("area3");
-            divE3.innerHTML = "당신이 바로<b>" + age + "살 " + name + "님</b> 이군요";
+            divE3.innerHTML = "당신이 바로 <b>" + age + "살 " + name + "님</b> 이군요";
         }
     </script>
 
@@ -159,9 +156,9 @@
        function testPrompt2() {
             var num = prompt("숫자만 입력하세요");
 
-            // for(var i=1; i<=num; i++) {
-            //     console.log(i);
-            // }
+            for(var i=1; i<=num; i++) {
+                console.log(i);
+            }
 
             var ul = document.getElementById("area4");
 
