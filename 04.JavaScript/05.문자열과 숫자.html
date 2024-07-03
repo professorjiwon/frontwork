@@ -172,10 +172,29 @@
         function plus() {
             const num1 = document.getElementById('num1').value;
             const num2 = document.querySelector('#num2').value;
-
             console.log(typeof num1);
 
+            let sum = num1 + num2;
+            console.log(sum);
+
+            sum = Number(num1) + Number(num2);
+
+            document.getElementById('result').innerHTML = `결과 : ${sum}`;
         } 
+    </script>
+
+    <hr>
+
+    <h3>* 실습문제</h3>
+    <p>
+        사용자로부터 prompt로 입력받은 문자열 중 알파벳(소문자만)의 갯수 세기
+    </p>
+    <button onclick="">실습문제</button>
+    <div id="ex"></div>
+
+    <script>
+        '입력한 문자열에서 소문자알파벳은 ??개 입니다'
+        
     </script>
 
 
