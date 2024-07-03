@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문자열과 숫자</title>
+    <style>
+        .area {
+            width: 300px;
+            border: 1px solid;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>문자열과 숫자</h1>
+
+    <h3>* 문자열 관련 메소드</h3>
+    <button onclick="stringTest();">문자열 처리 메소드</button>
+    <div class="area" id="area1"></div>
+
+    <script>
+        function stringTest() {
+            const area1 = document.getElementById('area1');
+                      //  document.querySelector('#area1');
+
+            const str1 = 'Hello World';
+
+            // area1.innerHTML = 'str1 : ' + str1 + '<br>';
+            area1.innerHTML = `str1 : ${str1}<br>`;
+            area1.innerHTML += `toUpperCase() : ${str1.toUpperCase()}<br>`;
+            area1.innerHTML += `toLowerCase() : ${str1.toLowerCase()}<br>`;
+            area1.innerHTML += `문자열의 길이 : ${str1.length}<br>`;
+            area1.innerHTML += '----------------------<br>';
+
+            for(let i=0; i<str1.length; i++) {  
+                // area1.innerHTML += `${i}번 인덱스 : ${str1[i]}<br>`;
+                area1.innerHTML += `${i}번 인덱스 : ${str1.charAt(i)}<br>`;
+            }
+            area1.innerHTML += '----------------------<br>';
+
+            area1.innerHTML += `앞에서부터 첫 'l'의 위치 : ${str1.indexOf("l")}<br>`;
+            area1.innerHTML += `뒤에서부터 첫 'l'의 위치 : ${str1.lastIndexOf("l")}<br>`;
+            area1.innerHTML += `앞에서부터 첫 'a'의 위치 : ${str1.indexOf("a")}<br>`;
+            // 존재하지 않으면 -1반환
+            area1.innerHTML += '----------------------<br>';
+
+            const str2 = '사과, 바나나, 복숭아, 포도';
+            const fruits = str2.split(',');  // ['사과', '바나나', ..]
+
+            area1.innerHTML += `fruits : ${fruits}<br>`;
+            area1.innerHTML += `fruits의 자료형 : ${typeof fruits}<br>`;
+
+            console.log(fruits);
+        }
+    </script>
+
+    <br>
+
+    <h3>* 문자열 관련 html메소드</h3>
+    <button onclick="stringHtmlTest();">문자열 Html 메소드</button>
+    <div class="area" id="area2"></div>
+
+    <script>
+        function stringHtmlTest() {
+            const area2 = document.getElementById("area2");
+            const str = 'javascript';
+
+            area2.innerHTML = `str : ${str}<br>`;
+            area2.innerHTML += `bold() : ${str.bold()}<br>`;
+            area2.innerHTML += `italics() : ${str.italics()}<br>`;
+            area2.innerHTML += `굵고 기울임꼴 : ${str.bold().italics()}<br>`;
+            area2.innerHTML += `small() : ${str.small()}<br>`;
+            area2.innerHTML += `sub() : ${str.sub()}<br>`;
+            area2.innerHTML += `sup() : ${str.sup()}<br>`;
+            area2.innerHTML += `link() : ${str.link('https://google.com')}<br>`;
+        }
+    </script>
+
+    <br>
+
+    <h3>* 숫자(수학) 관련 메소드</h3>
+    <button onclick="mathTest();">수학관련 메소드</button>
+    <div class="area" id="area3"></div>
+
+    <script>
+        function mathTest() {
+            const area3 = document.querySelector('#area3');
+
+            // 자바스크립트에서 Math내장 객체 제공
+            area3.innerHTML = `-123의 절대값 : ${Math.abs(-123)}<br>`;
+            area3.innerHTML += `랜덤값 : ${Math.random()}<br>`;
+            area3.innerHTML += `145.897의 반올림 : ${Math.round(145.897)}<br>`;
+            area3.innerHTML += `145.897의 반올림 : ${Math.round(145.897,1)}<br>`; // 위치조정 불가
+            area3.innerHTML += `145.897의 버림 : ${Math.floor(145.897)}<br>`;
+            area3.innerHTML += `145.123의 올림 : ${Math.ceil(145.123)}<br>`;
+        }
+    </script>
+
+    <h3>* 문자열과 숫자간의 산술연산/ 형변환</h3>
+    <button onclick="arithmetic();">산술연산</button>
+    <div class="area" id="area4"></div>
+
+    <script>
+        function arithmetic() {
+            // 덧셈은 문자열이 있으면 문자열로 인식
+            let test1 = 7 + 7;
+            let test2 = 7 + '7';
+            let test3 = '7' + 7;
+            let test4 = '7' + 7 + 7;
+            let test5 = '7' + (7 + 7);
+
+            const area4 = document.getElementById('area4');
+            area4.innerHTML = `test1 : ${test1}<br>`;
+            area4.innerHTML += `test2 : ${test2}<br>`;
+            area4.innerHTML += `test3 : ${test3}<br>`;
+            area4.innerHTML += `test4 : ${test4}<br>`;
+            area4.innerHTML += `test5 : ${test5}<hr>`;
+
+            // 덧셈이외의 산술 연산
+            // 문자열이 포함되어 있으면 숫자로 자동형변환되어 산술연산됨
+            //  조건: 문자열에 숫자만 들어있어야됨
+            let test6 = '7' - 6;
+            let test7 = '7' * 3;
+            let test8 = '7' / 3;
+            
+            area4.innerHTML += `test6 : ${test6}<br>`;
+            area4.innerHTML += `test7 : ${test7}<br>`;
+            area4.innerHTML += `test8 : ${test8}<hr>`;
+
+            // 강제형변환
+            // 덧셈연산시는 자동형변환이 안됨. 강제 형변환 해줘야 함
+            /*
+                1) Number(문자열)
+                2) parseInt(문자열)
+                3) parseFloat(문자열)
+            */
+
+            // 2, '3'
+            let test9 = 2 + '3';
+            let test10 = 2 + Number('3');
+            let test11 = 2 + parseInt('3');
+            let test12 = 2 + parseFloat('3');
+
+            area4.innerHTML += `test9 : ${test9}<br>`;
+            area4.innerHTML += `test10 : ${test10}<br>`;
+            area4.innerHTML += `test11 : ${test11}<br>`;
+            area4.innerHTML += `test12 : ${test12}<hr>`;
+
+            // 2, '1.234'
+            let test13 = 2 + '1.234';
+            let test14 = 2 + Number('1.234');
+            let test15 = 2 + parseInt('1.234');
+            let test16 = 2 + parseFloat('1.234');
+
+            area4.innerHTML += `test13 : ${test13}<br>`;
+            area4.innerHTML += `test14 : ${test14}<br>`;
+            area4.innerHTML += `test15 : ${test15}<br>`;
+            area4.innerHTML += `test16 : ${test16}`;
+        }
+    </script>
+
+    <br>
+
+    정수1 : <input type="number" id="num1"><br>
+    정수2 : <input type="number" id="num2"><br>
+
+    <div id="result">결과없음</div>
+    <button onclick="plus();">덧셈</button>
+
+    <script>
+        function plus() {
+            const num1 = document.getElementById('num1').value;
+            const num2 = document.querySelector('#num2').value;
+
+            console.log(typeof num1);
+
+        } 
+    </script>
+
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>

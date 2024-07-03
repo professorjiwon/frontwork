@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>변수와 자료형</title>
+    <style>
+        .area {
+            border: 1px solid;
+            width: 400px;
+            padding: 10px;
+        }
+    </style>
 </head>
 <body>
     <h1>변수와 자료형</h1>
@@ -101,8 +108,133 @@
     <h3>* 변수 선언 위치에 따른 전역변수/지역변수</h3>
 
     <script>
-        window.onload = function() { // 현재 문서가 다 로딩된 직후에 실행시킬 코드
-            console.log("문서 로딩 완료!");
+        // 현재 문서가 다 로딩된 직후에 실행
+        // window.onload = function() { 현재 문서가 다 로딩된 직후에 실행시킬 코드 }
+        // window.onload = function() { 
+        //     console.log("문서 로딩 완료!");
+        // }
+
+        // 특정 함수 영역 밖에 선언된 변수는 전역변수임(어디든지 사용가능)
+        var declareVar = "var 전역변수";
+        let declareLet = "let 전역변수";
+        const declareConst = "const 전역변수";
+
+        declareNone = "그냥 전역변수";  // 변수명 앞에 아무런 키워드가 없으면 전역변수임
+
+        window.onload = function() {
+            // console.log(declareVar);
+            // console.log(declareLet);
+            // console.log(declareConst);
+            // console.log(declareNone);
+
+            // 전역변수와 동일한 이름으로 지역변수 선언
+            // 전역변수와 지역변수의 이름이 동일하면 지역변수가 우선순위가 더 높다
+            var declareVar = "var 지역변수";
+            let declareLet = "let 지역변수";
+            const declareConst = "const 지역변수";
+
+            console.log(declareVar);
+            console.log(declareLet);
+            console.log(declareConst);
+            console.log(declareNone);
+
+            console.log("---------------------");
+
+            // 만약 전역변수에 접근하고 싶다면 window. 또는 this. 으로 접근가능(var만 가능)
+            console.log(window.declareVar);
+            console.log(this.declareVar);
+
+            // let, const는 전역변수를 불러올 수 없음 => undefined가 뜸
+            console.log(this.declareLet);
+            console.log(window.declareConst);
+
+            declareNone = "얘는 뭘까요?";
+            console.log(declareNone);
+            console.log(this.declareNone);
+
+            test();
+        }
+
+        function test() {
+            console.log("---------------------");
+            console.log(declareNone);
+            console.log(declareVar);
+            console.log(declareLet);
+            console.log(declareConst);
+        }
+    </script>
+
+    <h3>* 자료형</h3>
+    <p>
+        Dynamic Type : 변수 선언시 자료형을 별도로 지정하지 않음(자료형의 개념이 없는건 아님)<br>
+        => 변수별로 타입이 지정되지 않고, 대입되는 값에 의해 타입이 결정됨
+    </p>
+
+    <h4>자바스크립트의 자료형</h4>
+    <ul>
+        <li>string(문자열)</li>
+        <li>number(숫자)</li>
+        <li>boolean(논리값)</li>
+        <li>object(객체)</li>
+        <li>function(함수)</li>
+        <li>undefined(초기화가 안된 변수)</li>
+    </ul>
+
+    <button onclick="typeTest();">자료형 테스트</button>
+    <div class="area" id="area1"></div>
+
+    <script>
+        function typeTest() {
+            const name = '홍길동';
+            const age = 23;
+            const flag = true;
+            const hobby = ['영화', '음악', '낮잠'];              // 배열 객체
+            const divE1 = document.querySelector('#area1');     // div요소 객체
+
+            // javascript에서의 객체 선언
+            const user = {
+                name:'김말똥', 
+                age: 25, 
+                id:'user01'
+            };
+
+            const testfn = function() {
+                alert('ㅎㅎㅎ');
+            }
+            // 상수는 초기화 하지 않으면 오류
+            // const noVal;
+            let noVal;
+
+            // typeof 변수명 : 자료형 확인시 사용하는 함수
+            console.log("==============================");
+            console.log(typeof name, name);
+            console.log(typeof age, age);
+            console.log(typeof flag, flag);
+            console.log(typeof hobby, hobby);
+            console.log(typeof divE1, divE1);
+            console.log(typeof user, user);
+            console.log(typeof testfn, testfn);
+            console.log(typeof noVal, noVal);
+
+            // 문자열 : 쌍따옴표(""), 외따옴표(''), 백틱(``)
+            // 백틱(ES6) :  문자열과 변수 사용시 +기호 및 \n를 넣지 않고 사용 가능
+            let str = 'hello' + name + ' 나이 : ' + age;
+            let str1 = `hello ${name} 나이 : ${age}`;
+
+            let str3 = '이름\n홍길동';
+            let str4 = `이름
+            홍길동`;
+
+            // divE1.innerHTML = typeof name + ', ' + name + '<br>';
+            divE1.innerHTML = `${typeof name}, ${name}<br>`;
+            divE1.innerHTML += `${typeof age}, ${age}<br>`;
+            divE1.innerHTML += `${typeof flag}, ${flag}<br>`;
+            divE1.innerHTML += `${typeof hobby}, ${hobby}<br>`;
+            divE1.innerHTML += `${typeof divE1}, ${divE1}<br>`;
+            divE1.innerHTML += `${typeof user}, ${user}<br>`;
+            divE1.innerHTML += `${typeof testfn}, ${testfn}<br>`;
+            divE1.innerHTML += `${typeof noVal}, ${noVal}<br>`;
+            // 화면에 출력(텍스트 출력되기 때문에 콘솔출력과 결과가 다를 수 있음)
         }
     </script>
 </body>
