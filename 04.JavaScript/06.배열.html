@@ -142,7 +142,121 @@
     <button onclick="reverseTest();">reverse</button>
     <div class="area" id="area4"></div>
 
-    
+    <script>
+        function reverseTest() {
+            const area4 = document.querySelector('#area4');
+
+            let arr = [1,2,3,4,5];
+            area4.innerHTML += `arr : ${arr}<br>`;
+            area4.innerHTML += `reverse결과 : ${arr.reverse()}<br>`;
+            area4.innerHTML += `원본 arr : ${arr}<br>`;
+            // 원본 배열에 영향을 끼치는 메소드
+        }
+    </script>
+
+    <hr>
+
+    <h4>4) 배열.sort() : 배열에 담긴 값들을 오름차순으로 정렬시켜주는 메소드</h4>
+
+    <button onclick="sortTest();">sort</button>
+    <div class="area" id="area5"></div>
+
+    <script>
+        function sortTest() {
+            const area5 = document.getElementById('area5');
+
+            let arr = ['박길동', '김길동', '홍길동', '나길동', '강길동'];
+
+            area5.innerHTML += `arr : ${arr}<br>`;
+            area5.innerHTML += `sort결과 : ${arr.sort()}<br>`;
+            area5.innerHTML += `원본 arr : ${arr}<br>`;
+            // 원본 배열에 영향을 끼치는 메소드
+
+            // 내림차순으로 정렬하고 싶다면 => 오름차순 정렬 후 역순으로 뒤집기
+            area5.innerHTML += `내림차순 정렬 : ${arr.sort().reverse()}<br>`;
+        }
+    </script>
+
+    <hr>
+
+    <h4>
+        5.1) 배열.push(추가할요소) : 배열의 맨 뒤에 요소를 추가시키고 배열의 크기를 반환<br>
+        5.2) 배열.pop() : 배열의 맨 뒤에 요소를 제거하고 제거된 요소를 반환
+    </h4>
+
+    <button onclick="pushPopTest();">PUSH_POP</button>
+    <div class="area" id="area6"></div>
+
+    <script>
+        function pushPopTest() {
+            const area6 = document.getElementById('area6');
+
+            const arr = ['서초동', '방배동', '역삼동', '삼성동', '대치동'];
+
+            area6.innerHTML += `<b>arr</b> : ${arr}<br>`;
+            area6.innerHTML += `<b>arr 맨뒤에 추가(push)</b> : ${arr.push('구로동')}<br>`;
+            area6.innerHTML += `<b>원본 arr</b> : ${arr}<br>`;
+            arr.push('잠실본동');
+            area6.innerHTML += `<b>arr 맨뒤에 추가한 후</b> : ${arr}<br>`;
+            area6.innerHTML += '---------------------------<br>';
+
+            area6.innerHTML += `<b>arr의 맨뒤요소 제거(pop)</b> : ${arr.pop()}<br>`;
+            area6.innerHTML += `<b>원본 arr</b> : ${arr}<br>`;
+            arr.pop();
+            arr.pop();
+            area6.innerHTML += `<b>최종 arr</b> : ${arr}<br>`;
+        }
+    </script>
+
+    <hr>
+
+    <h4>
+        6.1) 배열.unshift(추가할요소) : 배열의 맨앞에 요소 추가한 후 배열의 크기 반환<br>
+        6.2) 배열.shift() : 배열의 맨앞에 요소 제거하고 제거된 요소 반환
+    </h4>
+
+    <button onclick="unshiftTest();">SHIFT_UNSHIFT</button>
+    <div class="area" id="area7"></div>
+
+    <script>
+        function unshiftTest() {
+            const area7 = document.getElementById('area7');
+
+            const arr = ['테니스', '볼링', '야구', '당구'];
+            area7.innerHTML += `<b>arr</b> : ${arr}<br>`;
+            arr.unshift('농구');
+            area7.innerHTML += `<b>arr에 농구를 unshift한 후</b> : ${arr}<br>`;
+            arr.shift();
+            area7.innerHTML += `<b>arr에 shift한 후</b> : ${arr}<br>`;
+        }
+    </script>
+
+    <hr>
+
+    <h4>
+        7.1) 배열.slice(시작인덱스, 끝인덱스) : 배열에서 시작인덱스부터 끝인덱스까지 추출해주는 메소드<br>
+        7.2) 배열.splice(시작인덱스, 제거수, 추가할 값, ..) : 배열의 요소 추출하여 제거 및 추가
+    </h4>
+
+    <button onclick="sliceTest();">SLICE</button>
+    <div class="area" id="area8"></div>
+
+    <script>
+        function sliceTest() {
+            const area8 = document.getElementById('area8');
+
+            let arr = ['java', 'oracle', 'html', 'css', 'javaScript'];
+            area8.innerHTML += `<b>arr</b> : ${arr}<br>`;
+            area8.innerHTML += `<b>slice(2,4)</b> : ${arr.slice(2,4)}<br>`;
+            area8.innerHTML += `<b>slice(3)</b> : ${arr.slice(3)}<br>`;
+
+            area8.innerHTML += `<b>slice(2,2,'jQuery')</b> : ${arr.splice(2,2,'jQuery','JSP')}<br>`;
+            area8.innerHTML += `<b>arr</b> : ${arr}<br>`;
+        }
+    </script>
+
+
+
 
 
 
