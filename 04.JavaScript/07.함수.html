@@ -123,7 +123,75 @@
             const k = 999;
             console.log(k);
         })('철수');
+
+        (() => console.log('iife - arrow'))();
+        (name => console.log(`Hi, ${name}`))('영희');
     </script>
+
+    <h2>함수의 매개변수</h2>
+
+    <!-- 함수에서의 매개변수는 모든 자료형 가능 -->
+    <button onclick="test2('안녕하세요');">문자매개변수</button>
+    <button onclick="test2(2);">숫자매개변수</button>
+    <button onclick="test2([1,2,3]);">배열매개변수</button>
+    <button onclick="test2(true);">논리매개변수</button>
+
+    <br>
+
+    <!-- 매개변수의 갯수가 맞지않아도 오류나지 않음 (많으면 뒤에것 무시, 적으면 undefined) -->
+    <button onclick="test2(prompt('이름 입력'));">prompt매개변수</button>
+    <button onclick="test2('안녕하세요', '반갑습니다');">문자2개매개변수</button>
+    <button onclick="test2();">매개변수없음</button>
+
+    <div class="area" id="area4"></div>
+
+    <script>
+        function test2(value) { // 매개변수는 자료형 지정 x, 선언구문 x => 변수명만
+            document.getElementById('area4').innerHTML = value;
+        }
+    </script>
+
+    <h3>* 매개변수 관련 arguments배열</h3>
+    <p>
+        함수 호출시 전달되는 값은 내부적으로 arguments 배열에 담김<br>
+        * arguments : 모든 함수마다 내부적으로 하나씩 존재하는 배열 객체
+    </p>
+
+    <button onclick="test3(11,12,1,5,7);">실행확인</button>
+    <div class="area" id="area5"></div>
+
+    <script>
+        function test3() {
+            console.log(arguments);
+            console.log(arguments[1]);
+
+            let area5 = document.getElementById('area5'); 
+
+            let sum = 0;
+            for(let ele of arguments) {
+                sum += ele;
+            }
+            area5.innerHTML = `합계 : ${sum}<br>`;
+            area5.innerHTML += `평균 : ${sum/arguments.length}<br>`;
+
+            // for in으로 arguments에 값들을 하나씩 출력
+        }
+    </script>
+
+    <h3>* 매개변수에 this관련 전달하기</h3>
+    <p>this : 현재 이벤트가 발생한 요소 객체</p>
+
+    <button onclick="test4(this);">this버튼</button>
+    <input type="button" value="input버튼" onclick="test4(this.value);">
+    <button onclick="test4(this.id);" id="btn4">id버튼</button>
+    <button onclick="test4(this.innerHTML);"><b>this버튼</b></button>
+
+    <script>
+        function test4(ele) {
+            console.log(ele);
+        }
+    </script>
+
 
 
 
