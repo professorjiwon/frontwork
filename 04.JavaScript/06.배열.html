@@ -235,7 +235,7 @@
 
     <h4>
         7.1) 배열.slice(시작인덱스, 끝인덱스) : 배열에서 시작인덱스부터 끝인덱스까지 추출해주는 메소드<br>
-        7.2) 배열.splice(시작인덱스, 제거수, 추가할 값, ..) : 배열의 요소 추출하여 제거 및 추가
+        7.2) 배열.splice(시작인덱스, 제거수[, 추가할 값, ..]) : 배열의 요소 추출하여 제거 및 추가
     </h4>
 
     <button onclick="sliceTest();">SLICE</button>
@@ -250,10 +250,125 @@
             area8.innerHTML += `<b>slice(2,4)</b> : ${arr.slice(2,4)}<br>`;
             area8.innerHTML += `<b>slice(3)</b> : ${arr.slice(3)}<br>`;
 
-            area8.innerHTML += `<b>slice(2,2,'jQuery')</b> : ${arr.splice(2,2,'jQuery','JSP')}<br>`;
+            area8.innerHTML += `<b>slice(2,2,'jQuery')</b> : ${arr.splice(2,2,'jQuery')}<br>`;
             area8.innerHTML += `<b>arr</b> : ${arr}<br>`;
         }
     </script>
+
+    <hr>
+    
+    <h4>
+        8) 배열.toString() / 배열.join([구분자]) : 배열에 각 인덱스에 담긴 값들을 하나의 '문자열'로 합쳐서 반환
+    </h4>
+
+    <button onclick="toStringJoinTest();">toString</button>
+    <div class="area" id="area9"></div>
+
+    <script>
+        function toStringJoinTest() {
+            const area9 = document.getElementById('area9');
+
+            const arr = ['나는', '오늘', '맛있는', '점심했어'];
+            area9.innerHTML += `<b>arr</b> : ${arr}<br>`;
+            area9.innerHTML += `<b>toString</b> : ${arr.toString()}<br>`;
+
+            area9.innerHTML += `<b>join</b> : ${arr.join()}<br>`;
+            area9.innerHTML += `<b>구분자를 제시한 join</b> : ${arr.join(' ')}<br>`;
+        }
+    </script>
+
+    <hr>
+
+    <h4>9) 반복처리(for문, for..in문, for..of문, forEach)</h4>
+
+    <button onclick="forEach();">forEach</button>
+    <div class="area" id="area10"></div>
+
+    <script>
+        function forEach() {
+            const area10 = document.getElementById('area10');
+            const arr = ['가','나','다'];
+
+            area10.innerHTML += `for : `;
+            for(let i=0; i<arr.length; i++) {
+                area10.innerHTML += `${arr[i]}, `;
+            }
+            area10.innerHTML += `<br>`;
+
+            // 배열에 대해 인덱스 속성 가져오기
+            area10.innerHTML += `for in : `;
+            for(let i in arr) {
+                area10.innerHTML += `${i} : ${arr[i]}, `;
+            }
+            area10.innerHTML += `<br>`;
+
+            // 배열의 요소 가져오기
+            area10.innerHTML += `for of : `;
+            for(let ch of arr) {
+                area10.innerHTML += `${ch}, `;
+            }
+            area10.innerHTML += `<br>`;
+
+            // forEach메소드 : 각 요소별로 전달한 함수(콜백함수)를 실행
+            area10.innerHTML += `forEach : <br>`;
+            arr.forEach(function(elem, index, arr) {
+                area10.innerHTML += `${elem}, ${index}, ${arr}<br>`;
+            });
+
+            // arr.forEach(function(elem, index) {
+            //     area10.innerHTML += `${elem}, ${index}<br>`;
+            // });
+
+            // arr.forEach(function(elem, index) {
+            //     area10.innerHTML += `${index}<br>`;
+            // });
+        }
+    </script>
+
+    <hr>
+
+    <h4>
+        10.1) map : 배열의 각 요소별로 작업한 후 요소를 담은 배열 반환<br>
+        10.2) filter : 각 요소별 콜백함수를 실행하여 true인 요소만 새 배열에 담아 반환<br>
+        10.3) reduce : 모든 요소를 대상으로 특정작업 후 하나의 값(객체)로 반환<br>
+              - 최대 / 최솟값, 누적합 등에 적합<br>
+              - reduce(콜백함수, 초기값) : 초기값을 생략하면 배열의 첫번째 요소가 초기값이 된다
+    </h4>
+
+    <button onclick="map();">MAP</button>&emsp;
+    <button onclick="filter();">FILTER</button>&emsp;
+    <button onclick="reduce();">REDUCE</button>&emsp;
+    <div class="area" id="area11">
+        <ul></ul>
+    </div>
+
+    <script>
+        const area11 = document.getElementById('area11');
+        function map() {
+            let arr = [1, 2, 3];  // [1, 4, 9]
+            let result = arr.map(function(value, index, arr) {
+                console.log(value, index, arr);
+                return value * value;
+            });
+            console.log(arr);
+            console.log(result);
+
+            let names = ['김말똥', '이순신', '김나무'];
+
+            let nameList = names.map(function(name) {
+                return `<li>${name}</li>`;
+            });
+            console.log(nameList);
+        }
+        function filter() {
+            
+        }
+        function reduce() {
+            
+        }
+    </script>
+
+
 
 
 
