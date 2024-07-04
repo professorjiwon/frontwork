@@ -343,7 +343,7 @@
     </div>
 
     <script>
-        const area11 = document.getElementById('area11');
+        const area11 = document.querySelector('#area11>ul');
         function map() {
             let arr = [1, 2, 3];  // [1, 4, 9]
             let result = arr.map(function(value, index, arr) {
@@ -359,24 +359,65 @@
                 return `<li>${name}</li>`;
             });
             console.log(nameList);
+
+            // 일반 for문
+            // for(let i=0; i<nameList.length; i++) {
+            //     area11.innerHTML += nameList[i];
+            // }
+
+            // for in(index번호)
+            // for(let x in nameList) {
+            //     area11.innerHTML += nameList[x];
+            // }
+
+            // for of(요소값)
+            // for(let y of nameList) {
+            //     area11.innerHTML += y;
+            // }
+
+            // forEach
+            nameList.forEach(function(elem /*, index */) {
+                area11.innerHTML += elem;
+                // area11.innerHTML += nameList[index];
+            });
         }
         function filter() {
+            let nums = [1,2,3,4,5,6,7,8,9,10];
+
+            let even = nums.filter(function(n, index, arr) {
+                return n % 2 == 0;
+            });
+            area11.innerHTML += `<li>${even}</li>`;
+
+            // 1) 1~100까지 배열에 담기
+            // 2) 31미만의 숫자중 3의 배수만 가져오는 filter
+            let arr = [];
+            for(let i=0; i<100; i++) {
+                arr.push(i+1);
+            }
             
+            let filter3 = arr.filter(function(n) {
+                return n < 31 && n%3 == 0;
+            });
+
+            area11.innerHTML += `<li>${filter3}</li>`;
         }
         function reduce() {
-            
+            let arr = [1,2,3,4,5,6,7,8,9,10];
+
+            let sum = arr.reduce(function(pv, elem, index, arr) {
+                console.log(pv, elem);
+                return pv + elem;
+            }, 0);
+            console.log('sum : ', sum);
+            area11.innerHTML += `<li>1~10까지 합 : ${sum}</li>`;
+
+            let nums = [1,5,9,10,2,6,7,8,3,4];
+            let max = nums.reduce(function(previous, current) {
+                return previous > current ? previous : current;
+            });
+            area11.innerHTML += `<li>nums에서 가장 큰 값 : ${max}</li>`;
         }
     </script>
-
-
-
-
-
-
-
-
-
-
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </body>
 </html>
