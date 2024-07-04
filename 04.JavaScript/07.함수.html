@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수</title>
+    <style>
+        .area {
+            border: 1px solid;
+            padding: 5px;
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <h1>함수</h1>
+
+    <h2>함수 선언하는 방법</h2>
+
+    <ol>
+        <li>선언적 함수(Function Declaration) : funcution키워드, 함수명</li>
+        <li>익명 함수(Function Expression) : 변수에 익명함수를 대입하는 방식</li>
+        <li>화살표 함수(Arrow Function) : 익명함수를 간단히 작성하는 방법(ES6(ES2015)에 추가)</li>
+        <li>즉시 실행 함수 iife(Immediately Invoked Function Expression)
+            <ul>
+                <li>선언과 호출</li>
+                <li>변수를 캡슐화처리 유용</li>
+            </ul>
+        </li>
+    </ol>
+
+    <h3>1) 선언적 함수</h3>
+    <pre>
+        function 함수명([매개변수, 매개변수, ...]) {
+            해당 함수 호출시 실행할 코드;
+            [return 결과값;]
+        }
+    </pre>
+
+    <button onclick="test1();">실행확인</button>
+    <div class="area" id="area1"></div>
+
+    <script>
+        function test1() {
+            document.getElementById('area1').innerHTML = 'test1() 함수 실행됨<br>';
+        }
+    </script>
+
+    <h3>2) 익명 함수</h3>
+    <pre>
+        변수|속성 = function([매개변수,매개변수,...]) {
+            해당 함수 호출시 실행할 코드;
+            [return 결과값;]
+        }
+
+        * 주로 이벤트 핸들러 작성시 사용
+    </pre>
+
+    <button id="btn">실행확인</button>
+    <div class="area" id="area2"></div>
+
+    <script>
+        let btn = document.getElementById('btn');
+        // 이벤트 속성에 대입되는 function => 이벤트 핸들러
+        btn.onclick = function() {
+            document.getElementById('area2').innerHTML = '이벤트 핸들러를 통해 실행됨';
+        }
+    </script>
+
+    <h3>3) 화살표 함수</h3>
+    <pre>
+        - 본문에 리턴만 있을 때
+           변수 = ([매개변수, 매개변수, ...]) => 리턴값
+
+        - 본문이 여러줄 일 때
+            변수 = ([매개변수, 매개변수, ...]) => {
+                해당 함수 호출시 실행할 코드;
+                [return 결과값;]
+            }
+    </pre>
+
+    <button id="btn3">실행확인</button>
+    <div class="area" id="area3"></div>
+
+    <script>
+        const area3 = document.getElementById('area3');
+        const btn3 = document.getElementById('btn3');
+
+        // btn3.onclick = function() {
+        //     return area3.innerHTML = '매개변수가 없는 화살표 함수 실행';
+        // }
+
+        // 위의 익명함수를 화살표 함수로 변환
+        btn3.onclick = () => area3.innerHTML = '매개변수가 없는 화살표 함수 실행';
+    </script>
+
+    <h3>4) 즉시실행 함수</h3>
+    <pre>
+        - 정의하면서 즉시 실행되는 함수
+        - 단 한번만 호출됨
+          ([변수] = function([매개변수, 매개변수, ...]) {
+            해당 함수 호출시 실행할 코드;
+          })(인자,인자,...);
+    </pre>
+
+    <script>
+        // 문서가 로딩된 직후 마지막 1개만 실행
+        // window.onload = function() {
+        //     console.log('onload');
+        // }
+
+        // window.onload = function() {
+        //     console.log('onload2');
+        // }
+
+        // 즉시실행 함수는 함수의 갯수만큼 실행
+        (function(){
+            console.log('iife');
+        })();
+
+        (function(name) {
+            console.log(`Hi, ${name}`);
+            const k = 999;
+            console.log(k);
+        })('철수');
+    </script>
+
+
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    
+</body>
+</html>
