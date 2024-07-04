@@ -148,16 +148,16 @@
             console.log(this.declareLet);
             console.log(window.declareConst);
 
-            declareNone = "얘는 뭘까요?";
-            console.log(declareNone);
-            console.log(this.declareNone);
+            declareInner = "얘는 뭘까요?"; // 무조건 전역변수
+            console.log(declareInner);
+            console.log(this.declareInner);
 
             test();
         }
 
         function test() {
             console.log("---------------------");
-            console.log(declareNone);
+            console.log(declareInner);
             console.log(declareVar);
             console.log(declareLet);
             console.log(declareConst);
