@@ -86,14 +86,43 @@
             };
             console.log(user);
             // .이용은 불가
-            // area2.innerHTML += `<b>user name</b> : ${product.user name}<br>`; 오류
+            // area2.innerHTML += `<b>user name</b> : ${user.user name}<br>`; 오류
 
             // 반드시 대괄호를 이용해야 됨
-            area2.innerHTML += `<b>user name</b> : ${product['user name']}<br>`;
-
+            area2.innerHTML += `<b>user name</b> : ${user['user name']}<br>`;
+            area2.innerHTML += `<b>age!!</b> : ${user['age!!']}<br>`;
         }
     </script>
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <h3>* 객체에서의 반복문</h3>
+    <p>
+        객체가 가지고 있는 모든 속성들에 순찬적으로 접근하고자 한다면 반복문 사용
+        단, 일반 for문으로는 불가능 'for in' 사용
+    </p>
+    <button onclick="test3();">실행확인</button>
+    <div class="area small" id="area3"></div>
+
+    <script>
+        function test3() {
+            let area3 = document.getElementById('area3');
+
+            const game = {
+                title : '의료용 디지털 영상',
+                price : 9000000,
+                tool : 'javsscript',
+                company : '더조은',
+            };
+
+            for(key in game) {
+                console.log('key : ', key);
+                // game.key는 속성명이 key인 것을 찾는다
+                // console.log('game.key : ', game.key);  못찾음( key : 'aaa'를 찾음 )
+                // console.log('game['key'] : ', game['key']);  // 위와 같음
+                console.log('game[key] : ', game[key]); // 변수의 값을 넣어야됨
+
+                area3.innerHTML += `${key} : ${game[key]}<br>`;
+            }
+        }
+    </script>
 </body>
 </html>
