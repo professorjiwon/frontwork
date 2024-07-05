@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체</title>
+    <style>
+        .area {
+            border: 1px solid;
+        }
+        .small {width: 200px;}
+        .big {width: 400px;}
+    </style>
+</head>
+<body>
+    <h1>객체</h1>
+
+    <h3>* 객체의 선언과 사용</h3>
+    <p>
+        객체는 중괄호{ }를 이용하여 생성하고,<br>
+        중괄호 안에 이 객체에 필요한 속성들을 정의함<br>
+        속성명:속성값의 형태로 정의(key:value)<br>
+        속성값으로는 모든 자료형을 담을 수 있음
+    </p>
+    <pre>
+        변수 = {
+            속성명:속성값,
+            속성명:속성값,
+            속성명:속성값,
+            ...
+        }
+    </pre>
+
+    <button onclick="test1()">실행확인</button>
+    <div class="area big" id="area1"></div>
+
+    <script>
+        function test1() {
+            const area1 = document.getElementById('area1');
+
+            const product = {
+                pName : 'Mango',
+                price : 4000,
+                'kind':'fruit',
+                fruitKind : ['Lime', 'Peach', 'berry']
+            };
+
+            console.log(product);
+            console.log(typeof product);
+
+            area1.innerHTML += `product : ${product}<br><br>`;
+
+            // 객체의 속성에 접근하는 방법
+            // 방법1. 대괄호를 이용하는 방법 : 객체명['속성명'] -> 속성명은 반드시 문자열로
+            area1.innerHTML += "<b>객체명['속성명'] 으로 접근하기<b><br>";
+            area1.innerHTML += `<b>pName</b> : ${product['pName']}<br>`;
+            area1.innerHTML += `<b>price</b> : ${product['price']}<br>`;
+            area1.innerHTML += `<b>kind</b> : ${product['kind']}<br>`;
+            area1.innerHTML += `<b>fruitKind</b> : ${product['fruitKind']}<br>`;
+            area1.innerHTML += `<b>fruitKind[1]</b> : ${product['fruitKind'][1]}<br>`;
+
+            area1.innerHTML += "--------------------------------------------<br>";
+
+            // 방법2. 점(.)을 이용하는 방법 : 객체명.속성명
+            area1.innerHTML += "<b>객체명.속성명 으로 접근하기<b><br>";
+            area1.innerHTML += `<b>pName</b> : ${product.pName}<br>`;
+            area1.innerHTML += `<b>price</b> : ${product.price}<br>`;
+            area1.innerHTML += `<b>kind</b> : ${product.kind}<br>`;
+            area1.innerHTML += `<b>fruitKind</b> : ${product.fruitKind}<br>`;
+            area1.innerHTML += `<b>fruitKind[1]</b> : ${product.fruitKind[1]}<br>`;
+        }
+    </script>
+
+    <h3>* 객체 생성시 특이케이스(속성명 제시시 반드시 문자열 형태로 해야되는 경우)</h3>
+    <button onclick="test2();">실행확인</button>
+    <div class="area small" id="area2"></div>
+
+    <script>
+        // 빈칸이나 특수기호가 들어가면 반드시 " " or ' ' 감싸야 된다
+        function test2() {
+            const area2 = document.getElementById('area2');
+
+            const user = {
+                'user name' : '홍길동',
+                'age!!' : 20
+            };
+            console.log(user);
+            // .이용은 불가
+            // area2.innerHTML += `<b>user name</b> : ${product.user name}<br>`; 오류
+
+            // 반드시 대괄호를 이용해야 됨
+            area2.innerHTML += `<b>user name</b> : ${product['user name']}<br>`;
+
+        }
+    </script>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>

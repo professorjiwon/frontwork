@@ -8,7 +8,6 @@
         .area {
             border: 1px solid;
             padding: 5px;
-            width: 300px;
         }
     </style>
 </head>
@@ -70,7 +69,7 @@
     <h3>3) 화살표 함수</h3>
     <pre>
         - 본문에 리턴만 있을 때
-           변수 = ([매개변수, 매개변수, ...]) => 리턴값
+            변수 = ([매개변수, 매개변수, ...]) => 리턴값
 
         - 본문이 여러줄 일 때
             변수 = ([매개변수, 매개변수, ...]) => {
@@ -154,7 +153,7 @@
     <h3>* 매개변수 관련 arguments배열</h3>
     <p>
         함수 호출시 전달되는 값은 내부적으로 arguments 배열에 담김<br>
-        * arguments : 모든 함수마다 내부적으로 하나씩 존재하는 배열 객체
+        * arguments : 모든 함수마다 내부적으로 하나씩 존재하는 배열형식 객체
     </p>
 
     <button onclick="test3(11,12,1,5,7);">실행확인</button>
@@ -192,10 +191,125 @@
         }
     </script>
 
+    <button onclick="test5(this)">동적효과버튼</button>
 
+    <script>
+        function test5(ele) {
+            ele.style.color = "red";
+            ele.innerHTML = '빨간색으로 변경';
+        }
+    </script>
 
+    <h2>함수의 리턴</h2>
 
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <h3>* 일반적인 값</h3>
+
+    <button onclick="test6();">랜덤값</button>
+    <div class="area" id="area6"></div>
+
+    <script>
+        // 1~100사이의 랜덤값 구해서 반환하는 함수
+        function ran() {
+            let random = parseInt(Math.random() * 100 + 1);
+            return random;
+        }
+        function test6() {
+            document.getElementById('area6').innerHTML = `랜덤값 : ${ran()}`;
+        }
+    </script>
+
+    <button onclick="console.log(ran());">랜덤값콘솔출력</button>
+
+    <h3>* 익명함수를 리턴</h3>
+    이름 : <input type="text" id="userName">
+    <button onclick="test7()();">익명함수 리턴</button>
+
+    <script>
+        function test7() {
+            let inputE1 = document.getElementById('userName');
+
+            return function() {
+                alert(inputE1.value);
+            }
+        }
+    </script>
+
+    <hr>
+
+    <h2>화살표 함수의 매개변수와 리턴</h2>
+
+    <h4>* 매개변수 지정 방법</h4>
+    <pre>
+    * 매개변수가 1개인 경우를 제외하고는 반드시 소괄호를 넣어야 됨
+      - 매개변수가 없을 경우 :        () => return값;
+      - 매개변수가 1개인 경우 :       x => return값;  (소괄호 생략가능)
+      - 매개변수가 2개 이상인 경우 :  (x, y) => return값;
+    </pre>
+
+    <h4>* 함수 body 지정 방법</h4>
+    <pre>
+    * single line block
+        x => { return 리턴값; }
+        x => 리턴값, 중괄호 생략
     
+    * multi line block
+        x => {
+            실행구문;
+            return 값;
+        }
+    </pre>
+
+    <button onclick="test8();">실행확인</button>
+    <div class="area" id="area8"></div>
+
+    <script>
+        function test8() {
+            let area8 = document.getElementById('area8');
+
+            area8.innerHTML += `일반함수로(매개변수 없음) 실행 : ${fun1()}<br>`;
+            area8.innerHTML += `화살표함수로(매개변수 없음) 실행 : ${aFun1()}<br><br>`;
+
+            area8.innerHTML += `일반함수로(매개변수1개) 실행 : ${fun2(3)}<br>`;
+            area8.innerHTML += `화살표함수로(매개변수1개) 실행 : ${aFun2(3)}<br><br>`;
+
+            area8.innerHTML += `일반함수로(매개변수2개 이상) 실행 : ${fun3(3,5)}<br>`;
+            area8.innerHTML += `화살표함수로(매개변수2개 이상) 실행 : ${aFun3(3,5)}<br><br>`;
+
+            area8.innerHTML += `일반함수로(본문이 여러줄) 실행 : ${fun4(3)}<br>`;
+            area8.innerHTML += `화살표함수로(본문이 여러줄) 실행 : ${aFun4(3)}<br><br>`;
+        }
+
+        // 매개변수 없을 때
+        let fun1 = function() {
+            return '매개변수가 없는 일반함수';
+        }
+
+        let aFun1 = () => '매개변수가 없는 일반함수';
+
+        // 매개변수가 1개 일 때
+        let fun2 = function(num1) {
+            return num1 * 2;
+        }
+
+        let aFun2 = num1 => num1 * 2;
+
+        // 매개변수가 2개 이상일 때
+        let fun3 = function(num1, num2) {
+            return num1 + num2;
+        }
+
+        let aFun3 = (num1, num2) => num1 + num2;
+
+        // 실행 본문이 여러줄 일 때
+        let fun4 = function(num1) {
+            let result = num1 * 5;
+            return result;
+        }
+
+        let aFun4 = num1 => {   // 실행본문에 중괄호{}를 넣으면 반드시 return이라는 키워드를 반드시 써줘야 됨
+            let result = num1 * 5;
+            return result;
+        }
+    </script>
 </body>
 </html>
