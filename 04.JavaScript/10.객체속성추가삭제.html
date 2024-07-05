@@ -8,8 +8,6 @@
         .area {
             border: 1px solid;
         }
-        .small {width: 200px;}
-        .big {width: 400px;}
     </style>
 </head>
 <body>
@@ -19,13 +17,178 @@
     </p>
 
     <button onclick="test1()">실행확인</button>
-    <div class="area small" id="area1"></div>
+    <div class="area" id="area1"></div>
 
     <script>
         function test1() {
+            let area1 = document.getElementById('area1');
+
             const student = {};     // 빈 객체 생성
+
+            // 객체에 속성 추가
+            student.name = '아무개';
+            student.hobby = ['게임','독서','운동'];
+            student.dream = '건물주';
+            student.age = 20;
+
+            console.log(student);
+
+            // 기존에 있는 속성이면 덮어쓰기, 없으면 추가
+            student.dream = '프로그래머';
+            console.log(student);
+
+            // 함수추가
+            student.toString = function() {
+                const str = `name : ${this.name}<br>
+                            hobby : ${this.hobby}<br>
+                            dream : ${this.dream}<br>
+                            age : ${this.age}`;
+                return str;
+            }
+            console.log(student);
+            area1.innerHTML += `학생 정보 :<br> ${student}<br>`;
+
+            // 객체 속성 제거
+            delete(student.age);
+            console.log(student);
+
+            student.toString = function() {
+                const str = `name : ${this.name}<br>
+                            hobby : ${this.hobby}<br>
+                            dream : ${this.dream}`;
+                return str;
+            }
+
+            area1.innerHTML += `<br>age속성 삭제 후 학생 정보 : <br>${student}`;
+        }
+    </script>
+
+    <h1>객체 배열</h1>
+
+    <h3>* 객체 배열을 사용한 다량의 데이터 관리</h3>
+
+    <button onclick="test2();">실행확인</button>
+    <div class="area" id="area2"></div>
+
+    <script>
+        function test2() {
+            let area2 = document.getElementById('area2');
+
+            const student0 = {name:'홍길동', java:78, oracle:89, html:98, css:95};
+            const student1 = {name:'이고잉', java:100, oracle:86, html:67, css:68};
+            const student2 = {name:'우재남', java:65, oracle:100, html:35, css:100};
+            const student3 = {name:'채규태', java:89, oracle:90, html:86, css:87};
+
+            // const students = [student0, student1, student2, student3];
+            const students = [];
+            students.push(student0);
+            students.push(student1);
+            students.push(student2);
+            students.push(student3);
+
+            console.log(students);
+            console.log(students[0]);
+            console.log(students[1].name);
+
+            // 객체.속성 = 새로운값;
+            for(i in students) {
+                // 모든 학생의 java점수 덮어쓰기
+                students[i].java = 100;
+
+                // 모든 학생의 javascript 속성 추가
+                students[i].javascript = 99;
+
+                // 모든 학생의 점수의 합계 함수 추가
+                students[i].getSum = function() {
+                    return this.java + this.html + this.oracle + this.css + this.javascript;
+                }
+
+                // 모든 학생의 점수의 평균 함수 추가
+                students[i].getAvg = function() {
+                    return this.getSum() / 5;
+                }
+            }
+            for(i in students) {
+                area2.innerHTML += `이름 : ${students[i].name},
+                                    총점 : ${students[i].getSum()},
+                                    평균 : ${students[i].getAvg()}<br>`;
+            }
+        }
+    </script>
+
+    <h3>* 생성자 함수</h3>
+    <p>
+        new 키워드를 통해서 객체를 생성할 수 있는 함수(함수 제시시 첫글자는 대문자로)
+    </p>
+    <button onclick="test3();">실행확인</button>
+    <div class="area" id="area3"></div>
+
+    <script>
+        function test3() {
+            let area3 = document.getElementById('area3');
+
+            const student0 = new Student("홍길동",100,80,70,89);
+            console.log(student0);
+            const student1 = new Student("이고잉",100,80,45,89);
+            const student2 = new Student("채규태",100,80,76,89);
+
+            const students = [student0, student1, student2];
             
+            for(i in students) {
+                area3.innerHTML += `이름 : ${students[i].name}, 
+                                    총점 : ${students[i].getSum()},
+                                    평균 : ${students[i].getAvg()}<br>`;
+            }
+        }
+        function Student(name,java,oracle,html,css) {
+            // 일반 속성 정의
+            this.name = name;
+            this.java = java;
+            this.oracle = oracle;
+            this.html = html;
+            this.css = css;
+
+            // 메소드 정의
+            this.getSum = function() {
+                return this.java  + this.oracle + this.html + this.css;
+            }
+
+            this.getAvg = function() {
+                return this.getSum() / 4;
+            }
+        }
+    </script>
+
+    <h1>내장 객체 : Date</h1>
+
+    <button onclick="test4();">실행확인</button>
+    <div class="area" id="area4"></div>
+
+    <script>
+        function test4() {
+            let area4 = document.getElementById('area4');
+
+            const date1 = new Date();       // 현재 날짜 및 시간
+            console.log(date1);
+
+            const date2 = new Date(2024, 7-1, 5);
+            console.log(date2);
+
+            const date3 = new Date(2024, 7-1, 5, 17, 26, 30);
+            console.log(date3);
+
+            area4.innerHTML += `Date() : ${date1}<br>`;
+            area4.innerHTML += `Date(년,월,일) : ${date2}<br>`;
+            area4.innerHTML += `Date(년,월,일,시,분,초) : ${date3}<br>`;
+
+            area4.innerHTML += `년도 : ${date1.getFullYear()}<br>`;
+            area4.innerHTML += `월 : ${date1.getMonth()+1}<br>`; 
+            area4.innerHTML += `일 : ${date1.getDate()}<br>`;
+            area4.innerHTML += `요일 : ${date1.getDay()}<br>`;
+
+            // 현재 날짜부터 종강일(2024.11.25)까지 남은 일수 D-day
             
+
         }
     </script>
 </body>
