@@ -179,16 +179,22 @@
 
             area4.innerHTML += `Date() : ${date1}<br>`;
             area4.innerHTML += `Date(년,월,일) : ${date2}<br>`;
-            area4.innerHTML += `Date(년,월,일,시,분,초) : ${date3}<br>`;
+            area4.innerHTML += `Date(년,월,일,시,분,초) : ${date3}<br><br>`;
 
             area4.innerHTML += `년도 : ${date1.getFullYear()}<br>`;
             area4.innerHTML += `월 : ${date1.getMonth()+1}<br>`; 
             area4.innerHTML += `일 : ${date1.getDate()}<br>`;
-            area4.innerHTML += `요일 : ${date1.getDay()}<br>`;
+            area4.innerHTML += `요일 : ${date1.getDay()}<br><br>`;
 
             // 현재 날짜부터 종강일(2024.11.25)까지 남은 일수 D-day
-            
-
+            let dDay = Math.round((new Date(2024, 11-1, 25) - new Date()) / (24*60*60*1000));
+            area4.innerHTML += `d-day : ${dDay}`;
+            /*
+            1s == 1000ms
+            1m == 60s == 60*1000
+            1h == 60m == 60*60s == 60*60*1000
+            1d == 24h == 24*60m == 24*60*60s == 24*60*60*1000
+            */
         }
     </script>
 </body>
