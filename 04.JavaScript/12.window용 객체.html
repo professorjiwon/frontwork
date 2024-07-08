@@ -7,11 +7,13 @@
     <style>
         .area {
             width: 300px;
-            height: 100px;
+            height: 80px;
             border: 1px solid;
             background-color: lightgrey;
             color: red;
             font-size: 48px;
+            line-height: 80px;
+            text-align: center;
         }
     </style>
 </head>
@@ -22,6 +24,113 @@
         - BOM(Browser Object Model) : location, screen, navigator, history<br>
         - DOM(Document Object Model) : document
     </p>
+
+    <h3>* [window.]open('url','창이름','창의특성');</h3>
+    <button onclick="test1();">네이버</button>
+
+    <script>
+        function test1() {
+            // window.open();
+            /*
+            * window.open(url, 창이름, 창의 특성)
+              - url : 새창에서 열고자하는 url주소
+              - 창이름 : target(창이름), 창이름이 같은것이 이미 열려 있다면 새로운 열리지 않고
+                        기존창에서 새로고침으로 열림
+              - 창의특성 : 새창의 너비, 높이, 주소창부분 여부, 툴바 여부, 스크로바 여부 등등
+                          새창의 특성을 넣어줌
+                => px
+                > width : 창의 너비
+                > height : 창의 높이
+                
+                => yes/no
+                > resizeable: 창의 크기조절 여부
+                > location : 주소창 여부
+                > menubar : 메뉴바
+                > scrollbar : 스크롤바 여부
+                > status : 상태 표시줄
+
+                ex) open('url',창이름, width=500, height=700, resizeable=no, location=yes,..)
+            */
+            open('http://naver.com','네이버','width=600, height=700')
+        }
+    </script>
     
+    <br>
+
+    <h3>* timer관련 메소드</h3>
+    <h4>- setTimeout(함수, 일정시간ms)</h4>
+    <p>내가 제시한 일정시간 후에 딱 한번만 실행</p>
+
+    <button onclick="test2();">실행확인</button>
+
+    <script>
+        function test2() {
+            const myWindow = window.open();
+
+            myWindow.alert("3초 후에 이 페이지는 종료 됩니다!");
+
+            setTimeout(function() {
+                myWindow.close();
+            },3000);
+        }
+    </script>
+
+    <br>
+
+    <h4>- setInterval(함수, 일정시간ms)</h4>
+    <p>내가 지정한 시간 간격마다 '매번' 함수 실행</p>
+    <button onclick="test3();">실행확인</button>
+    <div class="area" id="area1"></div>
+
+    <script>
+        function test3() {
+            const area1 = document.getElementById('area1');
+
+            setInterval(function() {
+                const now = new Date();
+
+                let hour = now.getHours();
+                let min = now.getMinutes();
+                let sec = now.getSeconds();
+
+                // if(hour < 10)
+                //     hour = '0' + hour;
+
+                // if(min < 10)
+                //     min = '0' + min;
+
+                // if(sec < 10)
+                //     sec = '0' + sec;
+
+                hour = hour < 10 ? '0' + hour : hour;
+                min = min < 10 ? '0' + min : min;
+                sec = sec < 10 ? '0' + sec : sec;
+
+                area1.innerHTML = `${hour} : ${min} : ${sec}`;
+            }, 1000);
+        }
+    </script>
+
+    <h2>* BOM</h2>
+
+    <h3>location 객체</h3>
+    <p>브라우저 주소창과 관련된 객체</p>
+
+    <button onclick="console.log(location);">실행확인</button>
+    <br><br>
+
+    <!-- a태그는 애초에 클릭시 요청할 url을 작성할 수 있는 href속성을 제공 -->
+    <a href="https://naver.com">네이버로 이동</a>
+    <br><br>
+
+    <!-- href속성과 assign()함수는 history정보를 보유하고 있다 -->
+    <button onclick="location.href='https://naver.com';">네이버로 이동</button>
+
+    <button onclick="location.assign('https://google.com');">구글로 이동</button>
+
+
+
+    
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </body>
 </html>
