@@ -123,14 +123,108 @@
     <a href="https://naver.com">네이버로 이동</a>
     <br><br>
 
-    <!-- href속성과 assign()함수는 history정보를 보유하고 있다 -->
+    <!-- href속성과 assign()함수는 history정보를 보유하고 있어서 뒤로가기 가능 -->
     <button onclick="location.href='https://naver.com';">네이버로 이동</button>
 
     <button onclick="location.assign('https://google.com');">구글로 이동</button>
 
+    <!-- replace()함수는 history정보가 없어 뒤로가기 불가능 -->
+    <button onclick="location.replace('https://daum.net');">다음으로 이동</button>
 
+    <!-- 새탭에서 열려면 -->
+    <button onclick="window.open('https://google.com')">새탭에서 구글 열기</button>
 
-    
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br>
+
+    <b>새로고침</b><br>
+    <!-- 페이지 맨 상위로 올라가서 보여줌 -->
+    <button onclick="location.href=location.href;">새로고침</button>
+
+    <!-- 현재 위치에서 새로고침 -->
+    <button onclick="location.reload();">새로고침</button><br><br>
+
+    <b>screen 객체</b><br>
+    <button onclick="console.log(screen);">screen객체 확인</button><br><br>
+
+    <b>navigator 객체</b><br>
+    <button onclick="console.log(navigator);">navigator객체 확인</button><br><br>
+
+    <b>history 객체</b><br>
+    <button onclick="console.log(history);">history객체 확인</button><br><br>
+
+    <h1>* DOM</h1>
+    <P>
+        HTML에 있는 각각의 요소들을 노드(NODE)라고 함<br>
+        > 요소노드(Element Node) : 태그 자체들을 의미<br>
+        > 텍스트노드(Text Node) : 태그 내에 기록되는 내용<br><br>
+
+        텍스트노드가 존재하는 요소(시작태그와 종료태그가 한 쌍으로 이루어져 있음) : div, h1, li, p, a ...
+        텍스트노드가 존재하지 않는 요소(시작태그로만 되어 있음) : input, img, hr, br ...
+    </P>
+
+    <h3>* 노드(요소) 생성과 관련되 메소드</h3>
+    <h4>- 텍스트노드가 존재하는 노드 생성(시작태그+종료태그)</h4>
+
+    <button onclick="test4();">요소 생성</button>
+    <div id="area2"></div>
+
+    <script>
+        function test4() {
+            // 동적으로 요소를 만드는 방법
+            // 1. '문자열'로 만드는 방법
+            document.getElementById('area2').innerHTML = '<h3>안녕하세요</h3>';
+
+            // 2. document에서 제공하는 메서드를 통해 '요소객체'로 만드는방법
+            //    2.1) ElementNode 객체 생성 : document.createElement("태그");
+            let eleNode = document.createElement('h3');   // <h3></h3>
+            console.log(eleNode);
+
+            //    2.2) TextNode 객체 생성 : document.createTextNode('문구');
+            let textNode = document.createTextNode('안녕하세요');
+
+            //    2.3) 두개의 노드를 결합(요소노드 하위에 텍스트노드 추가)
+            eleNode.appendChild(textNode);
+            console.log(eleNode);
+
+            // 객체여서 toString이 호출됨. 결과[Object HTMLHeadingElement]
+            // document.getElementById('area2').innerHTML = eleNode;
+            document.getElementById('area2').appendChild(eleNode);
+        }
+    </script>
+
+    <br>
+
+    <h4>- 텍스트노드가 존재하지 않는 노드 생성(시작태그만 존재)</h4>
+    <button onclick="test5();">요소 생성</button>
+    <div id="area3"></div>
+
+    <script>
+        function test5() {
+            // <img src="" width="" height="">
+
+            let img = document.createElement('img');  // <img>
+            console.log(img);
+
+            // 속성 추가(객체를 만든 후에 속성추가는 .으로 하듯이 추가하면 됨)
+            img.src = "https://www.tjoeun.co.kr/images/logo.gif?v=20190918";
+            img.width = "100";
+            // img.height = "30";
+            console.log(img);
+
+            document.getElementById('area3').appendChild(img);
+        }
+    </script>
+
+    <br><br>
+
+    <h3>* 노드(요소) 삭제</h3>
+    <b>위의 노드 생성 버튼 클릭 후 삭제해야 됨</b><br>
+    <button onclick="test6();">요소 삭제</button>
+
+    <script>
+        function test6() {
+            document.getElementById('area3').firstChild.remove();
+        }
+    </script>
 </body>
 </html>

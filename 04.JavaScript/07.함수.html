@@ -238,25 +238,29 @@
 
     <h2>화살표 함수의 매개변수와 리턴</h2>
 
+    <h4>* 함수 body 지정 방법</h4>
+    <pre>
+    - function 키워드 생략
+    - 매개변수의 갯수에 따라 넣기
+    - 화살표 표시
+    - 본문 프로그램
+        * single line block
+            x => 리턴값;  (중괄호 생략, return 키워드 생략)
+            x => { return 리턴값; }
+
+        * multi line block
+            x => {
+                실행구문;
+                return 값;
+            }
+    </pre>
+
     <h4>* 매개변수 지정 방법</h4>
     <pre>
     * 매개변수가 1개인 경우를 제외하고는 반드시 소괄호를 넣어야 됨
       - 매개변수가 없을 경우 :        () => return값;
       - 매개변수가 1개인 경우 :       x => return값;  (소괄호 생략가능)
       - 매개변수가 2개 이상인 경우 :  (x, y) => return값;
-    </pre>
-
-    <h4>* 함수 body 지정 방법</h4>
-    <pre>
-    * single line block
-        x => { return 리턴값; }
-        x => 리턴값, 중괄호 생략
-    
-    * multi line block
-        x => {
-            실행구문;
-            return 값;
-        }
     </pre>
 
     <button onclick="test8();">실행확인</button>
