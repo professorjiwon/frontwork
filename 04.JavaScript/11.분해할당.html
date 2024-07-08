@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>분해 할당</title>
+</head>
+<body>
+    <h1>분해 할당</h1>
+    <h2>배열이나 객체에 들어있는 속성값들을 각각 변수에 할당</h2>
+    
+    <h4>콘솔확인</h4>
+    <script>
+        /*
+        - 즉실실행함수(iife)
+        (function() { })();  
+        */
+        (() => {
+            /*
+            (구조) 분해 할당
+            1. 배열의 분해 할당
+            2. 객체의 분해 할당
+            */
+
+            // 1. 배열의 분해 할당
+            // ES5
+            const points = [20, 30, 40];
+            const x1 = points[0];
+            const y1 = points[1];
+            const z1 = points[2];
+            console.log('x1, y1, z1 = ', x1, y1, z1);
+
+            // ES6
+            const[x2, y2, z2] = points;
+            console.log('x2, y2, z2 = ', x2, y2, z2);
+
+            // 두번째 값 무시하기
+            const[x3, ,z3] = points;
+            console.log('x3, z3 = ', x3, z3);
+
+            // 두번째, 세번째 값 무시하기
+            const[x4] = points;
+            console.log('x4= ', x4);
+            // const[,,z4]=points;
+
+            const[x5, , , w5] = points;
+            console.log('x5, w5 = ', x5, w5);
+
+            // rest연산자(...) : 여러개의 인자값(배열로 들어옴)
+            // java의 가변인자 (String... p)
+            const[x6, y6, ...rest] = [10,20,30,40,50];
+            console.log('x6= ', x6);
+            console.log('y6= ', y6);
+            console.log('rest = ', rest);
+
+            // 2. 객체의 분해할당
+            const car = {
+                type : 'auto',
+                color : 'black',
+                model : 2024
+            };
+
+            // ES5 에서
+            const type1 = car.type;
+            const color1 = car.color;
+            const model1 = car.model;
+            console.log('ES5 : ', type1, color1, model1);
+
+            // ES6 에서
+            // 객체의 키와 동일하게 변수를 지정해야 됨
+            const {type, color, model} = car;
+            console.log('ES6 : ', type, color, model);
+
+            // 객체의 키와 다르게 변수를 지정하려면
+            const {type:type2, color:color2, model:model2} = car;
+            console.log('ES6 : ', type2, color2, model2);
+
+            console.log('---------------------------');
+
+            const func1 = function(car) {
+                const {type, color} = car;
+                console.log(type);
+                console.log(color);
+            }
+            func1(car);
+
+            console.log('func2');
+            
+            const func2 = ({type, color}) => {
+                console.log(type);
+                console.log(color);
+            }
+            func2(car);
+
+        })();
+    </script>
+</body>
+</html>
