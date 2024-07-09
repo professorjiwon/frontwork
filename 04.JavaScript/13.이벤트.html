@@ -123,7 +123,7 @@
         document.getElementById('btn5').addEventListener("click", e => {
             console.log(e.target);
             console.log(window.event.target);
-            console.log(this);  // window객체를 가리킴
+            // console.log(this);  // window객체를 가리킴
 
             e.target.innerHTML = 'API 클릭됨';
             window.event.target.style.backgroundColor = 'blue';
