@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>요소선택(기본이외선택자)</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+        div {
+            border: 1px solid;
+        }
+    </style>
+</head>
+<body>
+    <h1>기본 이외의 선택자</h1>
+    <h3>* 자손선택자(>)와 후손선택자</h3>
+
+    <div>
+        <ul>자손1
+            <li>div의 후손이면서 ul의 자손1</li>
+            <li>div의 후손이면서 ul의 자손2</li>
+            <li class="ch">div의 후손이면서 ul의 자손3</li>
+            <li class="ch">div의 후손이면서 ul의 자손4</li>
+            <li><h3>div와 ul의 후손이면서 li의 자손</h3></li>
+        </ul>
+        <h3>자손2</h3>
+        <h3 class="ch">자손3</h3>
+    </div>
+
+    <script>
+        $(() => {
+            $('div>h3').css('color','lightblue');
+            $('div h3').css('backgroundColor', 'violet');
+
+            // $('ul h3').css('color', 'red');
+            //$('li>h3').css('color', 'red');
+            $('ul>li>h3').css('color', 'red');
+
+            // $('.ch').css('backgroundColor','yellow');
+            /*
+            $('ul>.ch').css('backgroundColor','yellow');
+            $('ul>.ch').css('color','pink');
+            */
+
+            /*
+            $('ul>.ch').css('backgroundColor','yellow')
+                       .css('color','pink');
+            */
+
+            $('ul>.ch').css({backgroundColor:'yellow', color:'pink'});
+        })
+    </script>
+</body>
+</html>

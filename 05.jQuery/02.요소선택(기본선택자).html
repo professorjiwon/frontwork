@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>요소선택(기본선택자)</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <h1>기본선택자를 이용한 요소 선택</h1>
+    <h3>* 아이디 선택</h3>
+    <p>고유한 아이디값을 가진 요소 '하나만'선택할 때 사용</p>
+
+    <h2 id="id1">아이디 테스트</h2>
+
+    <script>
+        $(() => {
+            // 자바스크립트에서 사용
+            /*
+            document.getElementById('id1').style.color = 'red';
+            document.getElementById('id1').innerHTML = '글자변경';
+            */
+
+            // jQuery 사용
+            // .html() : 선택된 요소의  innerHTML과 관련된 기능을 수행하는 메서드
+            $('#id1').css('color','green');
+            $('#id1').html('글자변경');
+
+            console.log(document.getElementById('id1'));
+            console.log($('#id1'));
+        })
+    </script>
+
+    <hr>
+
+    <h3>* 클래스 선택자</h3>
+    <p>특정 클래스 속성을 가진 요소들을 선택하고자 할 때</p>
+
+    <h1 class="item">Class1</h1>
+    <h1 class="item select">Class2</h1>
+    <h1 class="item select">Class3</h1>
+
+    <script>
+        $(() => {
+            // 자바스크립트
+            const items = document.getElementsByClassName('item');
+            for(let i=0; i<items.length; i++) {
+                items[i].style.color = 'orange';
+                items[i].onclick = function() {
+                    console.log("클릭됨");
+                }
+            }
+
+            // jQuery
+            $('.select').css('backgroundColor', 'pink');
+            $('.select').click(function() {
+                alert('클릭됨');
+            })
+        })
+    </script>
+
+    <!--
+        * 요소 선택하는 방법
+                  순수 자바스크립트 방식               |    jQuery 방식
+        ================================================================
+            document.getElementById("아이디명")       |  $('#아이디명')
+         document.getElementsByClassName('클래스명')  |  $('.클래스명')
+           document.getElementsByTagName('태그명')    |  $('태그명')
+
+        * 선택된 요소에 속성값을 변경하고자 할 때  
+
+                  순수 자바스크립트 방식               |         jQuery 방식
+        -----------------------------------------------------------------------------
+               | 선택된 요소객체에 직접 속성에 접근해서 |    선택된 요소에 메서드 이용
+        =============================================================================
+        스타일 | .style.스타일속성 = '변경할 값'       | .css('스타일속성', '변경할값')
+        내용   |   .innerHTML = '변경할 값'           |      .html('변경할값')
+        이벤트 |   .on이벤트명 = function(){}         |    .이벤트명(function(){})
+    -->
+</body>
+</html>
