@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="resources/js/15.userScript.js"></script>
+    <title>회원가입</title>
+    <style>
+        * {margin: 0 auto;}
+        h1 {text-align: center; margin-top: 20px;}
+        div {width:700px; border: 1px solid black;}
+        td {height:40px;}
+        label {padding-left: 20px;}
+        select {width: 100px;}
+        .btn {width: 120px; height: 35px;}
+    </style>
+</head>
+<body>
+    <h1>회원가입</h1><br>
+    <div>
+        <form action="login.html" method="get" name="frm">
+            <table>
+                <tr>
+                    <td width="140px">* 아이디 : </td><td><input name="userId" id="userId" required></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><label>첫글자는 반드시 영문자하고 영문자, 숫자 포함 총 4~12자로 입력하시오.</label></td>
+                </tr>
+                <tr>
+                    <td>* 비밀번호 : </td><td><input type="password" name="userPw" id="userPw" required></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><label>영문자, 숫자, 특수문자로 총 8~15자로 입력하시오.</label></td>
+                </tr>
+                <tr>
+                    <td>* 비밀번호 확인 : </td><td><input type="password" name="checkPw" id="checkPw" required></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><label>위의 비밀번호와 일치하게 입력하시오.</label></td>
+                </tr>
+                <tr>   
+                    <td>* 이름 : </td><td><input name="name" id="name" required></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><label>한글로만 이루어져 있어야 되며 2글자 이상으로 입력하시오.</label></td>
+                </tr>
+                <tr>           
+                    <td>* 이메일 : </td><td><input name="email" id="email" required></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><label>이메일 형식에 맞춰 입력하시오.</label></td>
+                </tr>
+                <tr>                   
+                    <td>* 취미 : </td><td><input name="hobby" id="hobby" required></td>
+                </tr>
+                <tr>
+                    <td>* 거주지 :</td>
+                    <td>
+                        <select name="addr" id="addr">
+                            <option value="seoul">서울</option>
+                            <option value="incheon">인천</option>
+                            <option value="busan">부산</option>
+                            <option value="etc">기타</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr><td colspan="2"><hr></td></tr>
+                <tr>
+                    <td colspan="2" style="text-align: center;">
+                        <input type="submit" value="회원가입" class="btn" onclick="return validate();">&emsp;&emsp;
+                        <input type="reset" value="취소" class="btn">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>
