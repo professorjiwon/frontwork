@@ -50,8 +50,12 @@
     <script>
         $(()=>{
             $('span').parent().css({color:'red', border:'2px solid red'});
+            $('li').parents().css('color','blue');
+            $('li').parents('div').css('border','2px dashed magenta');
+
+            // parentsUntil('선택자') : 선택자 이전 까지
+            $('span').parentsUntil('div').css('color','pink');
         })
     </script>
-
 </body>
 </html>

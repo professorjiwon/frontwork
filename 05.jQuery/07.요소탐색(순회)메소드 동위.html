@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>요소탐색(순회)메소드 동위</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+        .wrap, .wrap * {
+            border: 1px solid lightgray;
+            color: gray;
+            display: block;
+            padding: 5px;
+            margin: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1>탐색(순회) 메서드</h1>
+    <h3>* 동위 메서드 : 같은 레벨에 있는 요소들을 선택할 수 있는 메서드</h3>
+    <p>
+        <h4>- $('선택자').siblings()</h4>
+        선택된 요소와 같은 레벨에 있는 모든 요소들 선택
+
+        <h4>- $('선택자').siblings('선택자')</h4>
+        선택된 요소와 같은 레벨에 있는 모든 요소들 중 제시한 값과 일치하는 요소들만 선택
+
+        <h4>- $('선택자').next|prev()</h4>
+        선택된 요소와 같은 레벨 요소들 중 바로 다음요소|이전요소 하나만 선택
+
+        <h4>- $('선택자').nextAll|prevAll()</h4>
+        선택된 요소와 같은 레벨 요소들 중 모든 다음요소들|이전요소들 선택
+
+        <h4>- $('선택자').nextUntil()</h4>
+        선택된 요소와 같은 레벨 요소들 중 제시한 값과 일치하는 요소 까지만 선택
+    </p>
+
+    <div class="wrap">
+        <p>p</p>
+        <span>span</span>
+        <h2>h2</h2>
+        <h3>h3</h3>
+        <p>p</p>
+    </div>
+
+    <script>
+        $(() => {
+            const style1 = {color:'red', border:'2px solid red'};
+            const style2 = {color:'blue', border:'2px solid blue'};
+            const style3 = {color:'green', border:'2px solid green'};
+            const style4 = {backgroundColor:'aqua', color:'orange'};
+
+            $('h2').siblings().css(style1);
+            $('h2').siblings('p').css(style2);
+
+            $('h2').next().css(style3);
+            $('h2').nextAll().css(style4);
+            $('h2').nextUntil('p').css('font-size','3em');
+
+            $('h2').prev().css('backgroundColor','pink');
+            $('h2').prevAll().css(style4);
+            $('h2').prevUntil('p').css('border','dotted');
+        })
+    </script>
+</body>
+</html>

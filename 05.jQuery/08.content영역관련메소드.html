@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>content영역 관련 메소드</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <h1>Content (innerHTML, innerText) 관련 메소드</h1>
+    <h3>* html(['문구']) 메소드 : innerHTML 속성과 관련된 메소드</h3>
+
+    <p>
+        선택된 요소의 content영역의 값을 리턴해주거나 또는 변경해주는 메서드<br>
+        > $('선택자').html() : 선택된 요소의 content영역 값을 반환해줌(html태그 포함)
+        > $('선택자').html('문구') : 선택된 요소의 content영역 값을 해당 문구로 변경해 줌(html태그가 존재하면 태그로써 해석함)
+    </p>
+
+    <h1 id="test1">
+        <a>네이버로</a>
+    </h1>
+
+    <h1 id="test2">
+
+    </h1>
+
+    <script>
+        $(() => {
+            // const tmp = document.getElementById('test1');
+            const tmp = $('#test1').html();
+            console.log(tmp);
+
+            $('#test2').html(tmp);
+            $('#test2').children().attr('href','https://naver.com');
+        })
+    </script>
+
+    <h3>* text(['문구']) 메소드 : innerText 속성과 관련된 메소드</h3>
+    <p>
+        선택된 요소의 content영역의 값을 리턴해주거나 또는 변경해주는 메서드<br>
+        > $('선택자').text() : 선택된 요소의 content 영역의 값을 반환(html태는 포함x, 오로지 text만)
+        > $('선택자').text('문구') : 선택된 요소의 content 영역의 값을 제시한 문구로 변경(html태그가 존재할 경우 태그해석x)
+    </p>
+</body>
+</html>

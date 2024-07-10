@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>요소탐색(순회)메소드 자손 후손</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+        .wrap, .wrap * {
+            border: 1px solid lightgray;
+            color: gray;
+            display: block;
+            padding: 5px;
+            margin: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1>탐색(순회) 메서드</h1>
+    <h3>* 자손 후손 메서드 : 기준이 되는 요소의 하위요소들을 선택할 수 있는 메서드</h3>
+    <p>
+        <h4>- $('선택자').children()</h4>
+        선택된 요소의 자손(바로 하위)요소들 선택
+
+        <h4>- $('선택자').children('선택자')</h4>
+        선택된 요소의 모든 자손들 중 제시한 값과 일치하는 요소들만 선택
+
+        <h4>- $('선택자').find('선택자')</h4>
+        선택된 요소의 모든 후손(하위요소들 전체)들 중 제시한 값과 일치하는 요소들만 선택
+    </p>
+
+    <div class="wrap">
+        <div>div(증조할머니)
+            <ul>ul(할머니)
+                <li>li(엄마)
+                    <span>span</span>
+                </li>
+            </ul>
+        </div>
+        <div>div(할아버지)
+            <p>p(아빠)
+                <span>span</span>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        $(() => {
+            // 앞으로 부여할 스타일 객체를 만들어 변수에 저장
+            const style1 = {color:'red', border:'2px solid red'};
+            const style2 = {color:'blue', border:'2px solid blue'};
+            const style3 = {color:'green', border:'2px solid green'};
+            const style4 = {color:'orange', border:'2px solid orange'};
+            const style5 = {color:'purple', border:'2px solid purple'};
+
+            $('.wrap').children().css(style1);
+            $('.wrap').children().children().css(style2);
+            $('.wrap').children().children('ul').css(style3);
+            $('.wrap').find('li').css(style4);
+            $('.wrap').find('span').css(style5);
+        })
+    </script> 
+</body>
+</html>
