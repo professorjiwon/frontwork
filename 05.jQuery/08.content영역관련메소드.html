@@ -41,5 +41,48 @@
         > $('선택자').text() : 선택된 요소의 content 영역의 값을 반환(html태는 포함x, 오로지 text만)
         > $('선택자').text('문구') : 선택된 요소의 content 영역의 값을 제시한 문구로 변경(html태그가 존재할 경우 태그해석x)
     </p>
+
+    <h1 id="test3">
+        <a>구글로</a>
+    </h1>
+
+    <h1 id="test4">
+
+    </h1>
+
+    <script>
+        $(() => {
+            // const tmp = document.getElementById('test3').innerText;
+            const tmp = $('#test3').text();
+            console.log(tmp);
+
+            $('#test4').text('<a>' + tmp + '</a>');
+        })
+    </script>
+
+    <hr>
+
+    <div class="test">테스트</div>
+    <div class="test">테스트</div>
+    <div class="test">테스트</div>
+
+    <script>
+        $(() => {
+            // class가 text인 요소객체들의 글자를 <h1>변경됨</h1>
+            $('.test').html('<h1>변경됨</h1>');
+
+            // 선택된 요소들을 순차적으로 접근할 때마다 해당 function이 실행됨
+            // 이때 함수 실행시 리턴된 값으로 문구 변경
+            let count = 0;
+            $('.test').html(function() {
+                return `<h1>다시 변경 ${++count}</h1>`;
+            })
+
+            $('.test').html(function(index, html) {
+                return `<h1>인덱스 : ${index}, content내용 : ${html}</h1>`;
+            })
+            // text()도 마찬가지임
+        })
+    </script>
 </body>
 </html>

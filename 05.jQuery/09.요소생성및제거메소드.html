@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>요소 생성 및 제거 메소드</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+        .added {color: aquamarine;}
+    </style>
+</head>
+<body>
+    <h1>요소 생성 및 제거</h1>
+    <h3>* 동적으로 요소 생성</h3>
+
+    <button id="btn">요소 생성</button>
+    <div id="area1"></div>
+
+    <script>
+        $(() => {
+            $('#btn').click(function() {
+                // 1. 문자열 생성
+                let el1 = '<p>Create Element By Text</p>'
+
+                // 2. DOM메소드로 만드는 방법(createElement, createTextNode)
+                
+                let el2 = document.createElement('p');  // <p></p>
+                let text = document.createTextNode('Create Element By Text');
+                el2.appendChild(text);
+                
+
+                // 3. jQuery 만드는 방법
+                // let el3 = $('<p></p>').text('Create Element By Text');
+                // console.log(el3);
+
+                let el3 = $('<p>Create Element By Text</p>');
+                console.log(el3);
+
+                $('#area1').append(el1, el2, el3);
+            })
+        })
+    </script>
+
+    <hr>
+
+    <h3>* 삽입 관련 메서드 part1</h3>
+    <p>
+        선택된 요소를 기준으로 새로운 요소들을 추가시켜주는 메서드<br><br>
+
+        $(A).append(B) : A요소 내에 뒷부분에 B를 추가(자손/하위)<br>
+        $(A).prepend(B) : A요소 내에 앞부분에 B를 추가(자손/하위)<br><br>
+
+        $(A).after(B) : A요소 뒷부분에 B를 추가(동위)<br>
+        $(A).before(B) : A요소 앞부분에 B를 추가(동위)<br><br>
+    </p>
+
+    <h3>* 삽입 관련 메서드 part2</h3>
+    <p>
+        선택된 요소를 기준으로 새로운 요소들을 추가시켜주는 메서드<br><br>
+
+        $(B).appendTo(A) : A요소 내에 뒷부분에 B를 추가(자손/하위)<br>
+        $(B).prependTo(A) : A요소 내에 앞부분에 B를 추가(자손/하위)<br><br>
+
+        $(B).insertAfter(A) : A요소 뒷부분에 B를 추가(동위)<br>
+        $(B).insertBefore(A) : A요소 앞부분에 B를 추가(동위)<br><br>
+    </p>
+
+    <h1 id="test1"><span>A</span></h1>
+    <h1 id="test2"><span>A</span></h1>
+    <h1 id="test3"><span>A</span></h1>
+    <h1 id="test4"><span>A</span></h1>
+
+    <script>
+        $(() => {
+            // part1
+            $('#test1').append('<span class="added">B</span>');
+            $('#test2').prepend('<span class="added">B</span>');
+        })
+    </script>
+
+</body>
+</html>
