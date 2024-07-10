@@ -7,6 +7,20 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <style>
         .added {color: aquamarine;}
+        .item {
+            background-color: yellowgreen;
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            line-height: 100px;
+            margin: 5px;
+        }
+        .item span {
+            font-size: 25px;
+            color: white;
+            font-weight: bold;
+        }
+        .purple {background-color: purple;}
     </style>
 </head>
 <body>
@@ -65,18 +79,141 @@
         $(B).insertBefore(A) : A요소 앞부분에 B를 추가(동위)<br><br>
     </p>
 
-    <h1 id="test1"><span>A</span></h1>
-    <h1 id="test2"><span>A</span></h1>
-    <h1 id="test3"><span>A</span></h1>
-    <h1 id="test4"><span>A</span></h1>
+    <h1 id="test1">
+        <span>A</span>
+    </h1>
+    <h1 id="test2">
+        <span>A</span>
+    </h1>
+
+    <h1 id="test3">
+        <span>A</span>
+    </h1>
+
+    <h1 id="test4">
+        <span>A</span>
+    </h1>
 
     <script>
         $(() => {
             // part1
             $('#test1').append('<span class="added">B</span>');
             $('#test2').prepend('<span class="added">B</span>');
+
+            $('#test3').before('<span class="added">B</span>');
+            $('#test4').after('<span class="added">B</span>');
+
+            // part2
+            /*
+            $('<span class="added">B</span>').appendTo('#test1');
+            $('<span class="added">B</span>').prependTo('#test2');
+
+            $('<span class="added">B</span>').insertBefore('#test3');
+            $('<span class="added">B</span>').insertAfter('#test4');
+            */
         })
     </script>
 
+    <hr>
+
+    <h3>* 요소 객체 복제 메서드</h3>
+    <p>
+        $('선택자').clone([true|false]) : 선택된 요소를 복제하여 반환해주는 메서드<br>
+        - true|false : 복제할 요소에 걸려있는 이벤트까지도 복제할 것인지를 지정(기본값 false)
+    </p>
+
+    <div id="clone-test">
+        <!-- 복제할 요소 -->
+        <div id="item1" class="item">
+            <span>안녕</span>
+        </div>
+    </div>
+
+    <button id="clone">복제하기</button>
+    <div id="clone-result"></div>
+
+    <script>
+        $(() => {
+            // 이벤트 넣기
+            $('.item').hover(function() {
+                $(this).addClass('purple');
+            }, function() {
+                $(this).removeClass('purple');
+            })
+
+            // 버튼을 누르면 복제
+            $('#clone').click(function() {
+                // const copy = $('#item1').clone();  이벤트복제x : (기본값)
+                /*
+                const copy = $('#item1').clone(true);   // 이벤트까지 복제
+                $('#clone-result').append(copy);
+
+                $('#clone-result').append($('#item1').clone(true));
+                */
+                $('#item1').clone(true).appendTo('#clone-result');
+            })
+        })
+    </script>
+
+    <hr>
+
+    <h3>* 요소를 제거 및 잘라내기 메소드</h3>
+    <p>
+        $('선택자').empty() : 선택된 요소의 하위 요소들을 제거해주는 메서드<br>
+
+        변수 = $('선택자').remove|detach() : 선택된 요소를 제거한 후 해당 요소를 반환해주는 메서드<br><br>
+          > remove() : 잘라내기할 때 잘라낸 요소의 이벤트를 가져오지 않음<br>
+          > detach() : 잘라내기할 때 잘라낸 요소의 이벤트를 가져옴<br>
+    </p>
+
+    <div id="remove-test">
+        <!-- 제거할 요소 -->
+        <div id="item2" class="item">
+            <span>안녕</span>
+        </div>
+    </div>
+
+    <button id="empty">제거</button>
+    <button id="remove">잘라내기(remove)</button>
+    <button id="detach">잘라내기(detach)</button>
+
+    <div id="remove-result"></div>
+
+    <script>
+        $(() => {
+            $('#empty').click(function() {
+                // $('#item2').empty();  // '#item2'요소의 하위요소를 삭제  <span>안녕</span>
+                $('#remove-test').empty();
+            })
+
+            $('#remove').click(function() {
+                const el = $('#item2').remove();
+                $('#remove-result').append(el);
+            })
+
+            $('#detach').click(function() {
+                const el = $('#item2').detach();
+                $('#remove-result').append(el);
+            })
+        })
+        /*
+        요소.css('스타일속성','값') : 변경
+        요소.css('스타일속성') : 반환
+
+        요소.val('텍스트') : 속성 value의 값 변경
+        요소.val() : 속성 value의 값 반환
+
+        요소.html|text('텍스트') : 변경
+        요소.html|text() : 반환
+
+        요소.attr('그외속성명','값') : 변경
+        요소.attr('그외속성명') : 반환
+
+        요소.이벤트(function() {})
+
+        요소.addClass('클래스명') : 클래스 삽입
+        요소.removeClass('클래스명') : 클래스 제거
+        */
+    </script>
 </body>
 </html>
