@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>추가적인 메소드</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+        .highlight-0{background-color: red;}
+        .highlight-1{background-color: orange;}
+        .highlight-2{background-color: yellow;}
+        .highlight-3{background-color: green;}
+        .highlight-4{background-color: blue;}
+    </style>
+</head>
+<body>
+    <h1>추가적인 메서드</h1>
+    <h3>* each메서드</h3>
+    <p>
+        배열의 모든 인덱스에 순차적으로 접근할 때 사용<br>
+        객체가 가지고 있는 모든 속성에 순차적으로 접근하고자 할 때<br>
+        for in문과 유사하게 수행되는 메서드
+    </p>
+
+    <pre>
+        1) $.each(객체|배열, function([매개변수1, 매개변수2,...]) {
+                순차적으로 접근할 때마다 실행할 내용;
+           });
+        2) 객체 배열.each(function() {
+                순차적으로 접근할 때마다 실행할 내용;
+            })
+
+           만약 객체를 제시했다면
+           첫번째 매개변수에는 순차적으로 접근할 때 마다의 객체의 속성명(키)가 담김
+           두번째 매개변수에는 해당 속성값(value)이 담김
+           
+           만약 배열을 제시했다면
+           첫번째 매개변수에는 순차적으로 접근할 때 마다 인데스가 담김
+           두번째 매개변수에는 해당 인덱스값이 담김
+    </pre>
+
+    <script>
+        $(() => {
+            const arr = ['강', '남', '하', '동']
+
+            // 1) for in 사용
+            for(let index in arr) {
+                console.log(`인덱스 : ${index}, 값 : ${arr[index]}`);
+            }
+
+            console.log('----------------------------');
+
+            // 2) each메소드 방법 1
+            $.each(arr, function(index, value) {
+                console.log(`인덱스 : ${index}, 값 : ${value}`);
+            })
+
+            console.log('----------------------------');
+
+            // 3) each메소드 방법 2
+            $(arr).each(function(index, value) {
+                console.log(`인덱스 : ${index}, 값 : ${value}`);
+            })
+
+            console.log('=============================');
+
+            const student = {
+                name:'홍길동',
+                age:20,
+                address:'서울'
+            }
+
+            // 1) for in 사용
+            for(let key in student) {
+                console.log(`속성명 : ${key}, 속성값 : ${student[key]}`);
+            }
+
+            // 2) each 사용
+            $.each(student, function(key, value) {
+                console.log(`속성명 : ${key}, 속성값 : ${value}`);
+            })
+
+            //------------------------------------------------------------
+            $('#btn').click(function() {
+                const students = [{name:'홍길도',age:20,addr:'서울'},
+                                  {name:'방인중',age:25,addr:'경기'},
+                                  {name:'우재남',age:23,addr:'인천'}];
+                
+                let result = '';
+                $(students).each(function(index, obj) {
+                    result += `<tr>
+                                    <td>${obj.name}</td>
+                                    <td>${obj.age}</td>
+                                    <td>${obj.addr}</td>
+                               </tr>`;
+                });
+
+                console.log(result);
+                $('#area1 tbody').html(result);
+            })
+        })
+    </script>
+
+    <button id="btn">학생조회</button>
+
+    <table id="area1" border="1">
+        <thead>
+            <tr>
+                <th>이름</th>
+                <th>나이</th>
+                <th>주소</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+
+    <br><br>
+
+    <div id="area2">
+        <h1>item-1</h1>
+        <h1>item-2</h1>
+        <h1>item-3</h1>
+        <h1>item-4</h1>
+        <h1>item-5</h1>
+    </div>
+
+    <script>
+        $(() => {
+            $('#area2').children().each(function(index/*, el*/) {
+                // console.log(el);
+                // el.addClass('highlight-' + index); // 안됨
+
+                // el : javascript방식으로 선택된 요소 객체가 들어있음(직접 속성에 접근하여 값 변경)
+                // el.className = 'highlight-' + index;
+
+                // jQuery
+                // $(el).addClass('highlight-' + index);
+
+                $(this).addClass('highlight-' + index);
+            })
+        })
+    </script>
+
+    <hr>
+
+    <h3>* is메서드</h3>
+    <p>
+        $('선택자').is('선택자')<br>
+        선택된 요소가 내가 전달한 값과 일치하는지 판단하여 그에 해당하는 논리값 반환
+    </p>
+
+    <h3 class="test">test1</h3>
+    <h3>test2</h3>
+    <h3 class="test">test3</h3>
+    <h3 class="test">test4</h3>
+    <h3>test5</h3>
+    <h3 class="test">test6</h3>
+
+    <script>
+        $(() => {
+            $('h3').each(function() {
+                if($(this).is('.test')) {
+                    $(this).css('backgroundColor', 'yellowgreen');
+                }
+            })
+        })
+    </script>
+</body>
+</html>
