@@ -32,14 +32,14 @@
 
     <script>
         $(() => {
-            $('div>h3').css('color','lightblue');
+            // $('div>h3').css('color','lightblue');
             $('div h3').css('backgroundColor', 'violet');
 
             // $('ul h3').css('color', 'red');
-            //$('li>h3').css('color', 'red');
+            // $('li>h3').css('color', 'red');
             $('ul>li>h3').css('color', 'red');
 
-            // $('.ch').css('backgroundColor','yellow');
+            $('.ch').css('backgroundColor','yellow');
             /*
             $('ul>.ch').css('backgroundColor','yellow');
             $('ul>.ch').css('color','pink');
@@ -70,7 +70,7 @@
     <input type="radio"><br>
     <input type="checkbox"><br>
     <input type="button" value="button" class="test2">
-<!-- 
+<!--
     <script>
         $(() => {
             /*
@@ -86,8 +86,10 @@
 
             // $('input[class*=st2]').css({width:'100px', height:'50px'});
             // $('input[class*=st2]').val('왕버튼');
-            $('input[class*=st2]').css({width:'100px', height:'50px'})
-                                  .val('왕버튼');
+           
+             $('input[class*=st2]').css({width:'100px', height:'50px'})
+                                   .val('왕버튼');
+                                 
         })
     </script> 
 -->
@@ -138,7 +140,7 @@
                 $(this).addClass('test');
             })
 
-            // mouseot
+            // mouseout
             $(':submit').mouseout(function() {
                 $(this).css('color','');
                 $(this).removeClass('test');
@@ -148,7 +150,7 @@
 -->
     <h3>* 상태(checked, selected, disabled, enabled)</h3>
 
-    <h4>- checked상태 선택자(radio, chencbox)</h4>
+    <h4>- checked상태 선택자(radio, checkbox)</h4>
 
     취미 :
     <input type="checkbox" name="hobby" value="game">게임
