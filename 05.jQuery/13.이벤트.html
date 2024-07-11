@@ -101,6 +101,81 @@
     <h3>** 동적으로 만들어진 요소에도 동일한 이벤트를 적용시키고자 한다면 반드시 방법3으로 해야됨</h3>
     <!-- 동적으로 만들어진 요소 : 처음에 문서 로딩시에는 없다가 나중에 새롭게 만들어진 요소 -->
 
+    <div id="test4" style="border:1px solid red">
+        <h6>기존에 존재하는 h6</h6>
+    </div>
 
+    <script>
+        $(() => {
+            // 방법1
+            /*
+            $('#test4>h6').click(function() {
+                $('#test4').append('<h6>클릭으로 인해 동적으로 만들어진 h6</h6>');
+            });
+            */
+
+            // 방법2
+            /*
+            $('#test4>h6').on('click', (function() {
+                $('#test4').append('<h6>클릭으로 인해 동적으로 만들어진 h6</h6>');
+            }));
+            */
+
+            // 방법3 => 동적으로 만들어진 요소에 이벤트 적용됨
+            $('#test4').on('click', 'h6', function() {
+                $('#test4').append('<h6>클릭으로 인해 동적으로 만들어진 h6</h6>');
+            });
+        })
+    </script>
+
+    <hr>
+
+    <h3>* 일회성 이벤트(one 메서드)</h3>
+
+    <h6 id="test5">딱 한번만 클릭시 실행</h6>
+
+    <script>
+        $(() => {
+            $('#test5').one('click', function() {
+                alert('처음이자 마지막으로 이벤트 실행');
+            });
+        })
+    </script>
+
+    <hr>
+
+    <h3>* 키보드 관련 이벤트</h3>
+    <p>
+        - keydown | keypress : 키가 눌려질때 발생하는 이벤트<br>
+          > keydown : 키보드의 모든 키가 눌려질 때 발생됨<br>
+          > keypress : 키보드의 펑션키, 기능키, 한글 제외한 나머지 키가 눌려질 때 발생됨<br>
+        - keyup : 키를 눌렀다 떼었을 때 발생되는 이벤트
+    </p>
+
+    <input id="test6">
+
+    <script>
+        $(() => {
+            $('#test6').keyup(function() {
+                // console.log('키를 눌렀음');
+                console.log($(this).val());
+                console.log('문자열 길이 : ', $(this).val().length);
+            })
+        })
+    </script>
+
+    <h3>* 동적으로 글자수 세기</h3>
+
+    최소 10글자 이상 최대 150자 이내로 작성하시오<br>
+    <textarea style="resize: none;" cols='30' rows="10" id="content"></textarea><br>
+    <span id="count">0</span> / 150
+
+    <script>
+        $(() => {
+            $('#content').keyup(function() {
+                $('#count').text($(this).val().length);
+            })
+        })
+    </script>
 </body>
 </html>
