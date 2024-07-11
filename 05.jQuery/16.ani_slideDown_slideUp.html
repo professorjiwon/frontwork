@@ -72,7 +72,21 @@
     <div>Q. 본인은 열심히 공부하십니까?</div>
     <p>A. 매일 2시간씩 공부하고 있습니다.</p>
 
-    
+    <script>
+        $(() => {
+            // 1. div를 클릭하면
+            // 2. 선택한요소의 다음 형제( next() )를
+            // 3. css(display)==none  보여주고, 그렇지 않으면 숨기기
+            $('div').click(function() {
+                let $p = $(this).next();
+                if($p.css('display')=='none') {
+                    $p.slideDown();
+                } else {
+                    $p.slideUp();
+                }
+            })
+        })
+    </script>
 
 
 </body>

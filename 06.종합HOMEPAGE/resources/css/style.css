@@ -1,0 +1,14 @@
+/* 전체 */
+* {margin: 0 auto; padding: 0; list-style: none; text-decoration: none; color: black;}
+a {color: inherit;}
+a:hover {color: inherit;}
+body {width:1000px;}
+
+/* 헤더부분 */
+header {height: 100px;}
+header>div {float: left;}
+header>div>img {width: 100px; margin-top: 25px;}
+
+header>nav{float: right; margin-top: 25px; padding: 10px;}
+.nav>li {float: left; width: 200px; text-align: center; position: relative; padding: 5px 0;}
+.nav ul {display: none;}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nav</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.min.js"></script>
+    <style>
+        li{list-style: none; float: left; width: 180px; height: 60px;}
+        li a {
+            text-decoration: none;
+            background-color: rgb(159, 189, 99);
+            display: inline-block;
+            width: 180px;
+            height: 60px;
+            color: black;
+            text-align: center;
+            font: bold 25px Verdana;
+            line-height: 60px;
+        }
+    </style>
+    <script>
+        $(() => {
+            $('li a').hover(function() {
+                let overColor = $(this).attr('data-bg');
+                $(this).stop().animate({'background-color':overColor, 'color':'white'}, 1000);
+            }, function() {
+                $(this).stop().animate({'background-color':'#9FBD63', 'color':'black'}, 1000);
+            })
+        })
+    </script>
+</head>
+<body>
+<!-- 
+    <ul>
+        <li><a href="" data-bg="#EF4018">Home</a></li>
+        <li><a href="" data-bg="#00C8C3">About</a></li>
+        <li><a href="" data-bg="#AA184D">Portfolio</a></li>
+        <li><a href="" data-bg="#05184D">Contact</a></li>
+    </ul>
+     -->
+</body>
+</html>
