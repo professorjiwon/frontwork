@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Effect 메서드</title>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.min.js"></script>
     <style>
         img {
             width: 500px;
@@ -35,11 +36,14 @@
     <script>
         $(() => {
             $('#hide').click(function() {
-                $('#img1').hide(2000);
+                $('#img1').hide(2000, "easeInOutQuint");
             });
             $('#show').click(function() {
                 $('#img1').show(2000);
-            })
+            });
+            $('#toggle').click(function() {
+                $('#img1').toggle(2000, 'easeOutBounce');
+            });
         })
     </script>
 </body>
