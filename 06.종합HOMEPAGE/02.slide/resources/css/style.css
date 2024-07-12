@@ -19,7 +19,7 @@ header>nav{float: right; margin-top: 25px; padding: 10px;}
 
 /* 본문 이미지 */
 #imgslide {clear: both; width:1000px; height: 362px; position: relative; margin: 10px 0; overflow: hidden;}
-#imgslide>img {position: absolute;}
+#imgslide>div {position: absolute; display: flex;}
 
 /* 본문 내용 */
 /* 본문 내용 왼쪽 공지사항 */

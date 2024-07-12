@@ -17,32 +17,16 @@ $(() => {
         $(this).children('.submenu').stop().slideUp();
     })
 
-    // 이미지 fadeIn_Out 적용
+    // 이미지 slide 적용
     setInterval(slide, 2000);
-    let x = $('#imgslide>img');
-    let y = 3;
-
+    let x = $('#imgslide>div');
     function slide() {
-        y--;
-        if(y == 0) {
-            x.fadeIn();
-            y=3;
+        if(x.position().left == -2000) {
+            x.animate({left:'-=1000px'}, function() {
+                x.css('left',0);
+            });
         } else {
-            x.eq(y).fadeOut();
+            x.animate({left:'-=1000px'});
         }
     }
-
-    /*
-    let x = $('#imgslide>img');
-    let y = 3;
-    setInterval(function() {
-        y--;
-        if(y == 0) {
-            x.fadeIn();
-            y=3;
-        } else {
-            x.eq(y).fadeOut();
-        }
-    }, 2000);
-    */
 })
