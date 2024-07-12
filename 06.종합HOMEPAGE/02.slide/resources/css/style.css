@@ -1,0 +1,51 @@
+/* 전체 */
+* {margin: 0 auto; padding: 0; list-style: none; text-decoration: none; color: black;}
+a {color: inherit;}
+a:hover {color: inherit;}
+body {width:1000px;}
+
+/* 헤더부분 */
+header {height: 100px;}
+header>div {float: left;}
+header>div>img {width: 100px; margin-top: 25px;}
+
+header>nav{float: right; margin-top: 25px; padding: 10px;}
+.nav>li {float: left; width: 200px; text-align: center; position: relative; padding: 5px 0;}
+.nav>li:hover {background-color: rgb(4, 4, 81); color:white;}
+/* .submenu {display: none;} */
+.submenu {display: none; position: absolute; width: 100%; margin-top: 5px; z-index: 3;}
+.submenu>li {padding: 5px 0; background-color: rgba(255,255,255,0.7);}
+.submenu>li:hover {background-color: rgba(4, 4, 81, 0.3); color: white;}
+
+/* 본문 이미지 */
+#imgslide {clear: both; width:1000px; height: 362px; position: relative; margin: 10px 0; overflow: hidden;}
+#imgslide>img {position: absolute;}
+
+/* 본문 내용 */
+/* 본문 내용 왼쪽 공지사항 */
+h2,p,th,td{color:#666666;}
+.notice {float:left; width:49%; text-align:center;}
+.notice h2{text-align:center}
+.table{border-collapse:collapse; font-size:0.9em; color:#666666;}
+.table tr>th{padding:5px 0}
+.table tr>td{padding:5px; text-align: left;}
+.table tr:nth-child(2n){background-color: rgba(153,153,153,0.5)}
+
+
+/* 본문 내용 오른쪽 partner */
+.partner{float: right; width: 49%; text-align:center}
+.partner_info{margin-top: 20px; text-align: center;}
+.partner_info>img{width:450px; height:155px;}
+
+/* 본문 내용 아래 icon*/
+.icon{clear: both; text-align:center; display:flex;}
+.imgbtn{width:160px; padding: 30px; }
+.imgbtn>img{height: 130px;}
+.imgbtn button{margin-top: 5px; padding: 10px; background-color: #999999; color: #FFF; border: none; border-radius: 10px; font-size: 20px}
+.imgbtn>button:hover{background-color: #616161;}
+button{cursor:pointer}
+
+/* footer */
+footer{font-size: 0.9em; height: 80px; padding: 20px 20px; background-color: #4298cc; overflow: hidden;}
+footer span{color:white;}
+footer p{margin-top: 5px; color:rgb(235, 235, 235);}
