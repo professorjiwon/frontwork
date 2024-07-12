@@ -11,4 +11,12 @@ header>div>img {width: 100px; margin-top: 25px;}
 
 header>nav{float: right; margin-top: 25px; padding: 10px;}
 .nav>li {float: left; width: 200px; text-align: center; position: relative; padding: 5px 0;}
-.nav ul {display: none;}
+.nav>li:hover {background-color: rgb(4, 4, 81); color:white;}
+/* .submenu {display: none;} */
+.submenu {display: none; position: absolute; width: 100%; margin-top: 5px; z-index: 3;}
+.submenu>li {padding: 5px 0; background-color: rgba(255,255,255,0.7);}
+.submenu>li:hover {background-color: rgba(4, 4, 81, 0.3); color: white;}
+
+/* 본문 이미지 */
+#imgslide {clear: both; width:1000px; height: 362px; position: relative; margin: 10px 0; overflow: hidden; }
+#imgslide>div {position: absolute; display: flex;}
