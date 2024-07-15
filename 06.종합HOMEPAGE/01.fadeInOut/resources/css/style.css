@@ -7,7 +7,7 @@ body {width:1000px;}
 /* 헤더부분 */
 header {height: 100px;}
 header>div {float: left;}
-header>div>img {width: 100px; margin-top: 25px;}
+header>div>img {width: 100px; margin-top: 25px; box-shadow: 10px 10px 5px black;}
 
 header>nav{float: right; margin-top: 25px; padding: 10px;}
 .nav>li {float: left; width: 200px; text-align: center; position: relative; padding: 5px 0;}
@@ -19,7 +19,7 @@ header>nav{float: right; margin-top: 25px; padding: 10px;}
 
 /* 본문 이미지 */
 #imgslide {clear: both; width:1000px; height: 362px; position: relative; margin: 10px 0; overflow: hidden;}
-#imgslide>img {position: absolute;}
+#imgslide>img {position: absolute; }
 
 /* 본문 내용 */
 /* 본문 내용 왼쪽 공지사항 */
